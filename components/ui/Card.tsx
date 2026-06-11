@@ -1,4 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 type CardVariant = "default" | "highlight" | "dark";
 
@@ -8,14 +11,15 @@ interface CardProps {
   children: ReactNode;
   as?: "div" | "article" | "section";
   href?: string;
+  index?: number;
 }
 
 const variantStyles: Record<CardVariant, string> = {
   default:
-    "bg-white border border-gray-200 hover:border-purple-300 transition-all duration-150",
+    "bg-white border border-gray-200",
   highlight:
-    "bg-gradient-card border border-purple-200 hover:border-purple-400 transition-all duration-150",
-  dark: "bg-bg-dark border border-purple-800 text-white hover:border-purple-600 transition-all duration-150",
+    "bg-gradient-card border border-purple-200",
+  dark: "bg-bg-dark border border-purple-800 text-white",
 };
 
 function Card({
@@ -24,24 +28,38 @@ function Card({
   children,
   as: Component = "div",
   href,
+  index = 0,
 }: CardProps) {
+  const baseClass = `rounded-xl card-hover ${variantStyles[variant]} ${className}`;
+  const delay = index * 0.1;
+
   if (href) {
     return (
-      <a
+      <motion.a
         href={href}
-        className={`block rounded-xl ${variantStyles[variant]} ${className}`}
+        className={baseClass}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay, ease: "easeOut" as const }}
+        whileHover={{ y: -6, transition: { duration: 0.2 } }}
       >
         {children}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <Component
-      className={`rounded-xl ${variantStyles[variant]} ${className}`}
+    <motion.div
+      className={baseClass}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay, ease: "easeOut" as const }}
+      whileHover={{ y: -6, transition: { duration: 0.2 } }}
     >
       {children}
-    </Component>
+    </motion.div>
   );
 }
 

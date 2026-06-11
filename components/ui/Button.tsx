@@ -7,6 +7,7 @@ import {
   useState,
   useEffect,
 } from "react";
+import { motion } from "framer-motion";
 
 type ButtonVariant =
   | "primary"
@@ -31,16 +32,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-cta text-white border-transparent hover:brightness-110 active:scale-[0.97] active:brightness-95",
+    "bg-gradient-cta text-white border-transparent",
   secondary:
-    "bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200 active:scale-[0.97]",
+    "bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200",
   outline:
-    "bg-transparent text-purple-700 border-purple-300 hover:bg-purple-50 active:bg-purple-100 active:scale-[0.97]",
+    "bg-transparent text-purple-700 border-purple-300 hover:bg-purple-50",
   ghost:
-    "bg-transparent text-gray-700 border-transparent hover:bg-gray-100 active:bg-gray-200 active:scale-[0.97]",
+    "bg-transparent text-gray-700 border-transparent hover:bg-gray-100",
   danger:
-    "bg-danger text-white border-danger hover:brightness-90 active:scale-[0.97] active:brightness-75",
-  link: "bg-transparent text-purple-600 border-transparent hover:underline hover:text-purple-800 p-0 min-h-0 h-auto",
+    "bg-danger text-white border-danger",
+  link: "bg-transparent text-purple-600 border-transparent hover:text-purple-800 p-0 min-h-0 h-auto",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -88,7 +89,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const isDisabled = disabled || loading;
 
     const base =
-      "inline-flex items-center justify-center gap-2 font-semibold border-2 rounded-lg transition-all duration-150 cursor-pointer select-none relative focus-visible:outline-3 focus-visible:outline-purple-600 focus-visible:outline-offset-2 no-underline";
+      "inline-flex items-center justify-center gap-2 font-semibold border-2 rounded-lg relative select-none focus-visible:outline-3 focus-visible:outline-purple-600 focus-visible:outline-offset-2 no-underline overflow-hidden";
 
     const stateClass = showSuccess
       ? "bg-success-light text-success border-success hover:bg-success-light!"
@@ -99,14 +100,22 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const sizeClass = variant === "link" ? "" : sizeStyles[size] || sizeStyles.md;
 
     return (
-      <button
+      <motion.button
         ref={ref}
-        className={`${base} ${stateClass} ${sizeClass} ${isDisabled ? "opacity-40 cursor-not-allowed pointer-events-none" : ""} ${fullWidth ? "w-full" : ""} ${className}`}
+        whileHover={!isDisabled ? { scale: 1.02 } : undefined}
+        whileTap={!isDisabled ? { scale: 0.97 } : undefined}
+        className={`${base} ${stateClass} ${sizeClass} ${isDisabled ? "opacity-40 cursor-not-allowed pointer-events-none" : "cursor-pointer"} ${fullWidth ? "w-full" : ""} ${className}`}
         disabled={isDisabled}
         aria-disabled={isDisabled || undefined}
         aria-busy={loading || undefined}
-        {...props}
+        {...(props as any)}
       >
+        <motion.span
+          className="absolute inset-0 bg-white/10"
+          initial={{ x: "-100%" }}
+          whileHover={{ x: "100%" }}
+          transition={{ duration: 0.5 }}
+        />
         {loading && (
           <span
             className="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"
@@ -114,17 +123,29 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           />
         )}
         {!loading && showSuccess && (
-          <span aria-hidden="true">✓</span>
+          <motion.span
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            aria-hidden="true"
+          >
+            ✓
+          </motion.span>
         )}
         {!loading && showError && (
-          <span aria-hidden="true">✗</span>
+          <motion.span
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            aria-hidden="true"
+          >
+            ✗
+          </motion.span>
         )}
         {icon && !loading && !showSuccess && !showError && (
           <span className="w-4 h-4 flex-shrink-0" aria-hidden="true">
             {icon}
           </span>
         )}
-        <span>{children}</span>
+        <span className="relative z-10">{children}</span>
         {loading && (
           <span className="sr-only" role="status">
             Aguarde...
@@ -140,7 +161,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             Erro na operação. Tente novamente.
           </span>
         )}
-      </button>
+      </motion.button>
     );
   }
 );

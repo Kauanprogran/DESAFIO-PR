@@ -8,19 +8,25 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "swap",
+  display: "block",
+  preload: true,
 });
 
 export const metadata: Metadata = {
-  title: "VetMóvel — Saúde Animal ao seu Alcance",
+  title: {
+    default: "VetMóvel — Saúde Animal ao seu Alcance",
+    template: "%s | VetMóvel",
+  },
   description:
-    "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências.",
+    "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências. Cuidado veterinário perto de você.",
+  keywords: ["veterinário", "pet", "saúde animal", "banco de ração", "adoção", "emergência veterinária"],
   openGraph: {
     title: "VetMóvel — Saúde Animal ao seu Alcance",
     description:
       "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências.",
     locale: "pt_BR",
     type: "website",
+    siteName: "VetMóvel",
   },
 };
 
@@ -31,6 +37,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={inter.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="font-sans antialiased">
         <Navbar />
         <main className="min-h-screen pt-16">{children}</main>
