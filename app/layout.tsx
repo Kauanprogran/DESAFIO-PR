@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "DESAFIO PR — Design System",
-  description: "Sistema de Design System do projeto DESAFIO PR",
+  title: "VetMóvel — Saúde Animal ao seu Alcance",
+  description:
+    "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências.",
+  openGraph: {
+    title: "VetMóvel — Saúde Animal ao seu Alcance",
+    description:
+      "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências.",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -23,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="pt-BR" className={inter.variable}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
