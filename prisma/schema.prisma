@@ -1,0 +1,265 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  VET
+  TUTOR
+  PARCEIRO
+}
+
+enum AgendamentoStatus {
+  PENDENTE
+  CONFIRMADO
+  EM_ANDAMENTO
+  CONCLUIDO
+  CANCELADO
+}
+
+enum AnimalPorte {
+  PEQUENO
+  MEDIO
+  GRANDE
+}
+
+enum AnimalSexo {
+  MACHO
+  FEMEA
+}
+
+enum StatusAdocao {
+  DISPONIVEL
+  EM_ADOCAO
+  ADOTADO
+}
+
+enum StatusSolicitacaoRacao {
+  PENDENTE
+  EM_ANALISE
+  APROVADO
+  ENTREGUE
+  RECUSADO
+}
+
+enum TipoDoacao {
+  UNICA
+  RECORRENTE
+}
+
+enum StatusDoacao {
+  PENDENTE
+  CONCLUIDA
+  CANCELADA
+}
+
+model User {
+  id             String    @id @default(cuid())
+  nome           String
+  email          String    @unique
+  telefone       String?
+  senhaHash      String
+  imagem         String?
+  role           Role      @default(TUTOR)
+  cpf            String?   @unique
+  dataNascimento DateTime?
+  endereco       String?
+  cidade         String?
+  estado         String?
+  cep            String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  agendamentos  Agendamento[]
+  animais       Animal[]
+  interesses    InteresseAdocao[]
+  solicitacoes  SolicitacaoRacao[]
+  doacoes       Doacao[]
+  notificacoes  Notificacao[]
+  sessoes       Session[]
+  accounts      Account[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  provider          String
+  providerAccountId String
+  refreshToken      String? @map("refresh_token")
+  accessToken       String? @map("access_token")
+  expiresAt         Int?    @map("expires_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Servico {
+  id             String   @id @default(cuid())
+  nome           String
+  descricao      String
+  descricaoCurta String?
+  icone          String?
+  preco          Float?
+  gratuito       Boolean  @default(false)
+  duracaoMin     Int?
+  ativo          Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  agendamentos Agendamento[]
+
+  @@map("servicos")
+}
+
+model Agendamento {
+  id          String             @id @default(cuid())
+  userId      String
+  vetId       String?
+  servicoId   String
+  data        DateTime
+  status      AgendamentoStatus  @default(PENDENTE)
+  observacoes String?
+  endereco    String?
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id])
+  servico Servico @relation(fields: [servicoId], references: [id])
+
+  @@map("agendamentos")
+}
+
+model Animal {
+  id           String       @id @default(cuid())
+  userId       String
+  nome         String
+  especie      String
+  raca         String?
+  idade        Int?
+  porte        AnimalPorte?
+  sexo         AnimalSexo?
+  cor          String?
+  imagem       String?
+  descricao    String?
+  statusAdocao StatusAdocao @default(DISPONIVEL)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  tutor      User               @relation(fields: [userId], references: [id])
+  interesses InteresseAdocao[]
+
+  @@map("animais")
+}
+
+model InteresseAdocao {
+  id        String   @id @default(cuid())
+  animalId  String
+  tutorId   String
+  mensagem  String?
+  createdAt DateTime @default(now())
+
+  animal Animal @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  tutor  User   @relation(fields: [tutorId], references: [id])
+
+  @@map("interesses_adocao")
+}
+
+model SolicitacaoRacao {
+  id           String                 @id @default(cuid())
+  userId       String
+  quantidade   Int
+  motivo       String?
+  status       StatusSolicitacaoRacao @default(PENDENTE)
+  dataRetirada DateTime?
+  createdAt    DateTime               @default(now())
+  updatedAt    DateTime               @updatedAt
+
+  tutor User @relation(fields: [userId], references: [id])
+
+  @@map("solicitacoes_racao")
+}
+
+model Doacao {
+  id          String        @id @default(cuid())
+  userId      String
+  valor       Float
+  tipo        TipoDoacao    @default(UNICA)
+  status      StatusDoacao  @default(PENDENTE)
+  stripeId    String?       @unique
+  recorrencia String?
+  createdAt   DateTime      @default(now())
+
+  tutor User @relation(fields: [userId], references: [id])
+
+  @@map("doacoes")
+}
+
+model Parceiro {
+  id        String   @id @default(cuid())
+  nome      String
+  descricao String?
+  categoria String?
+  telefone  String?
+  whatsapp  String?
+  email     String?
+  site      String?
+  endereco  String?
+  cidade    String?
+  estado    String?
+  latitude  Float?
+  longitude Float?
+  imagem    String?
+  ativo     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("parceiros")
+}
+
+model CartaoPetSocial {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  codigo    String   @unique
+  qrCode    String?
+  ativo     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("cartoes_pet_social")
+}
+
+model Notificacao {
+  id        String   @id @default(cuid())
+  userId    String
+  titulo    String
+  mensagem  String
+  lida      Boolean  @default(false)
+  tipo      String?
+  link      String?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notificacoes")
+}
