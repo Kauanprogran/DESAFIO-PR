@@ -55,7 +55,7 @@
   --color-bg-dark: #2D1B69;
 
   /* ── Tipografia ── */
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: "Fira Code", monospace;
 
   --text-xs: 12px;
@@ -108,13 +108,14 @@
   }
 
   body {
-    font-family: var(--font-sans);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     font-size: var(--text-base);
     line-height: var(--leading-normal);
     color: var(--color-gray-900);
     background: var(--color-bg-white);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
