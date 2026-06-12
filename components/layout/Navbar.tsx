@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -39,7 +39,7 @@ function Navbar() {
             href="/"
             className="text-xl font-bold text-white tracking-tight hover:opacity-90 transition-opacity"
           >
-            VetMóvel
+            Help Pet
           </Link>
 
           <nav className="hidden md:flex items-center gap-1" aria-label="Principal">

@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Agendamento — VetMóvel",
+  title: "Agendamento — Help Pet",
   description: "Agende consultas e serviços veterinários para seu pet.",
 };
 

@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Adoção — VetMóvel",
+  title: "Adoção — Help Pet",
   description: "Adote um animal e transforme uma vida. Centenas de pets esperando por um lar.",
 };
 

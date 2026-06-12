@@ -1,9 +1,9 @@
-import { test, expect } from "@playwright/test";
+﻿import { test, expect } from "@playwright/test";
 
 test.describe("Home Page", () => {
   test("deve carregar o hero com título e CTA", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("h1")).toContainText("VetMóvel");
+    await expect(page.locator("h1")).toContainText("Help Pet");
     await expect(page.getByRole("link", { name: "Ver serviços" })).toBeVisible();
   });
 

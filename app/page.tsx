@@ -242,6 +242,72 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Nossa Van */}
+      <section className="py-24 relative overflow-hidden" style={{ background: "#0F0A2E" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <span className="pet-decoration top-10 left-[5%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
+          <span className="pet-decoration bottom-10 right-[5%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐕</span>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div {...fadeUp()} className="order-2 lg:order-1">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
+                🚐 Nossa Van
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                Atendimento veterinário{" "}
+                <span className="text-gradient bg-gradient-to-r from-purple-400 to-purple-200">
+                  vai até você
+                </span>
+              </h2>
+              <p className="text-lg text-purple-200/50 mb-8 leading-relaxed">
+                Nossa van veterinária percorre bairros e cidades do Paraná levando atendimento
+                clínico, vacinação, exames e castração gratuita para tutores de baixa renda.
+                Equipamentos completos e equipe especializada a bordo.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  { icon: "📍", text: "Atendimento em bairros e comunidades" },
+                  { icon: "⏰", text: "Rota semanal com horários agendados" },
+                  { icon: "🏥", text: "Equipamentos clínicos completos a bordo" },
+                  { icon: "💜", text: "Prioridade para tutores de baixa renda" },
+                ].map((item) => (
+                  <div key={item.text} className="flex items-start gap-3">
+                    <span className="text-xl mt-0.5">{item.icon}</span>
+                    <span className="text-purple-200/60">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/servicos">
+                <Button variant="primary" size="lg">
+                  Ver rota da van
+                </Button>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="order-1 lg:order-2 flex items-center justify-center"
+            >
+              <div className="relative w-[360px] h-[360px]">
+                <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl" />
+                <div className="absolute inset-6 border border-purple-400/10 rounded-full" />
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="text-[160px] leading-none block opacity-90">🚐</span>
+                    <p className="text-purple-300/40 text-sm mt-4">Help Pet Móvel</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Pet SOS */}
       <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1A1045 0%, #0F0A2E 100%)" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

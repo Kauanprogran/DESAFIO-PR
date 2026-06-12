@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Banco de Ração — VetMóvel",
+  title: "Banco de Ração — Help Pet",
   description: "Solicite ou doe ração para pets de tutores de baixa renda.",
 };
 

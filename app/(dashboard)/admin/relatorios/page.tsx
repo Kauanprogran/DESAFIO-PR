@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
-  title: "Relatórios — VetMóvel",
-  description: "Relatórios e métricas do VetMóvel.",
+  title: "Relatórios — Help Pet",
+  description: "Relatórios e métricas do Help Pet.",
 };
 
 export default function RelatoriosPage() {

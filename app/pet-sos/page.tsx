@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
 export const metadata: Metadata = {
-  title: "Pet SOS — VetMóvel",
+  title: "Pet SOS — Help Pet",
   description: "Emergência veterinária com resposta imediata. Acione o veterinário mais próximo agora.",
 };
 

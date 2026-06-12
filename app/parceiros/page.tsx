@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Parceiros — VetMóvel",
-  description: "Rede de parceiros VetMóvel. Veterinários, pet shops e clínicas parceiras.",
+  title: "Parceiros — Help Pet",
+  description: "Rede de parceiros Help Pet. Veterinários, pet shops e clínicas parceiras.",
 };
 
 const parceiros = [

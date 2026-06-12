@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Serviços — VetMóvel",
+  title: "Serviços — Help Pet",
   description: "Serviços veterinários completos: consultas, vacinação, exames, castração e mais.",
 };
 

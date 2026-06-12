@@ -1,8 +1,8 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const footerSections = [
   {
-    title: "VetMóvel",
+    title: "Help Pet",
     links: [
       { href: "/sobre", label: "Sobre nós" },
       { href: "/como-funciona", label: "Como funciona" },
@@ -66,11 +66,11 @@ function Footer() {
         <div className="mt-12 pt-8 border-t border-purple-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <Link href="/" className="text-lg font-bold">
-              VetMóvel
+              Help Pet
             </Link>
           </div>
           <p className="text-purple-100/50 text-sm text-center">
-            &copy; {new Date().getFullYear()} VetMóvel. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Help Pet. Todos os direitos reservados.
           </p>
         </div>
       </div>

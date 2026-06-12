@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Doações — VetMóvel",
+  title: "Doações — Help Pet",
   description: "Contribua com a saúde animal. Sua doação transforma vidas.",
 };
 

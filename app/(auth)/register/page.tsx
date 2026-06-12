@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
-  title: "Cadastro — VetMóvel",
-  description: "Crie sua conta gratuita no VetMóvel.",
+  title: "Cadastro — Help Pet",
+  description: "Crie sua conta gratuita no Help Pet.",
 };
 
 export default function RegisterPage() {

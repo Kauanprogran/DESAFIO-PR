@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Cartão Pet Social — VetMóvel",
+  title: "Cartão Pet Social — Help Pet",
   description: "Cartão Pet Social: beneficios exclusivos para tutores de baixa renda.",
 };
 

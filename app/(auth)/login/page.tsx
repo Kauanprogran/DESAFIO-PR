@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
-  title: "Login — VetMóvel",
-  description: "Acesse sua conta VetMóvel.",
+  title: "Login — Help Pet",
+  description: "Acesse sua conta Help Pet.",
 };
 
 export default function LoginPage() {
@@ -16,7 +16,7 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-gray-900">Entrar</h1>
           <p className="text-gray-500 text-sm mt-1">
-            Acesse sua conta VetMóvel
+            Acesse sua conta Help Pet
           </p>
         </div>
 

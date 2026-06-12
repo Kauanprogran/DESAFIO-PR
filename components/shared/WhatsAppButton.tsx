@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 interface WhatsAppButtonProps {
   phone?: string;
@@ -9,7 +9,7 @@ interface WhatsAppButtonProps {
 }
 
 const defaultPhone = "554184158693";
-const defaultMessage = "Olá! Gostaria de mais informações sobre o VetMóvel.";
+const defaultMessage = "Olá! Gostaria de mais informações sobre o Help Pet.";
 
 function WhatsAppButton({
   phone = defaultPhone,

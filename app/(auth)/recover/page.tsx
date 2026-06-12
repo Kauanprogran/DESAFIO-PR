@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
-  title: "Recuperar senha — VetMóvel",
-  description: "Recupere sua senha do VetMóvel.",
+  title: "Recuperar senha — Help Pet",
+  description: "Recupere sua senha do Help Pet.",
 };
 
 export default function RecoverPage() {
