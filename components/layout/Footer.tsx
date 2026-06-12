@@ -75,7 +75,7 @@ function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-2">
-                <Image src="/logo.png" alt="Help Pet" width={160} height={42} className="h-11 w-auto" priority />
+                <Image src="/logo.svg" alt="Help Pet" width={160} height={42} className="h-11 w-auto" priority />
               </Link>
               <span className="text-purple-400/30 text-sm">|</span>
               <span className="text-purple-200/50 text-sm">CRMV registrado • Protegido LGPD</span>
