@@ -121,19 +121,19 @@ export default function HomePage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-700/30 text-purple-950 bg-white/60 mb-6">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-700/30 text-purple-800 bg-white/60 mb-6">
                   🐾 Saúde animal em todo o Paraná
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-purple-950 leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-purple-900 leading-tight mb-6">
                 Cuidado veterinário{" "}
-                 <span className="text-gradient bg-gradient-to-r from-purple-950 to-purple-800">
+                 <span className="text-gradient bg-gradient-to-r from-purple-800 to-purple-600">
                   onde seu pet está
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-purple-800/90 max-w-xl mb-6 mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-lg sm:text-xl text-purple-700/80 max-w-xl mb-6 mx-auto lg:mx-0 leading-relaxed">
                 Agende consultas, veterinários parceiros, emergência 24h, banco de ração
                 e adoção responsável. Tudo perto de você no estado do Paraná.
               </p>
@@ -154,7 +154,7 @@ export default function HomePage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    style={{ borderColor: "#4C1D95", color: "#4C1D95" }}
+                    style={{ borderColor: "#7C3AED", color: "#7C3AED" }}
                     className="hover:bg-purple-50"
                   >
                     🆘 Pet SOS 24h
@@ -410,11 +410,15 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <Link href="/pet-sos">
+              <a
+                href="https://wa.me/554184158693?text=URGÊNCIA!%20Meu%20pet%20precisa%20de%20atendimento%20veterinário%20imediato.%20Preciso%20de%20ajuda%20agora!"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="danger" size="lg">
                   🆘 Acionar Pet SOS agora
                 </Button>
-              </Link>
+              </a>
             </motion.div>
 
             <motion.div

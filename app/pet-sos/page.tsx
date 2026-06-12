@@ -21,13 +21,19 @@ export default function PetSOSPage() {
         <p className="text-lg text-white/80 max-w-xl mx-auto mb-8">
           Seu pet passou mal? Acione o veterinário mais próximo com um clique.
         </p>
-        <Button
-          variant="danger"
-          size="lg"
-          className="!bg-white !text-danger hover:!brightness-95 text-lg px-12 py-4 animate-pulse"
+        <a
+          href="https://wa.me/554184158693?text=URGÊNCIA!%20Meu%20pet%20precisa%20de%20atendimento%20veterinário%20imediato.%20Preciso%20de%20ajuda%20agora!"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          🆘 ACIONAR PET SOS AGORA
-        </Button>
+          <Button
+            variant="danger"
+            size="lg"
+            className="!bg-white !text-danger hover:!brightness-95 text-lg px-12 py-4 animate-pulse"
+          >
+            🆘 ACIONAR PET SOS AGORA
+          </Button>
+        </a>
       </section>
 
       {/* Info */}
