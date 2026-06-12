@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https:",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://maps.googleapis.com https://api.stripe.com",
+              "connect-src 'self' https://maps.googleapis.com https://api.stripe.com https://router.project-osrm.org",
               "frame-src https://js.stripe.com",
               "base-uri 'self'",
               "form-action 'self'",

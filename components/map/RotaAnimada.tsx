@@ -3,14 +3,15 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import "leaflet/dist/leaflet.css";
 
-const ORIGIN = { lat: -25.479, lng: -53.617, name: "Base Help Pet - Capitão Leônidas Marques" };
-const DESTINATION = { lat: -25.37, lng: -53.58, name: "Rua das Flores, 123 - Interior, PR" };
-const ANIMATION_MS = 10000;
+const ORIGIN = { lat: -25.479, lng: -53.617, name: "Base Help Pet" };
+const DESTINATION = { lat: -25.37, lng: -53.58, name: "Rua das Flores, 123" };
+const ANIMATION_MS = 12000;
 
 export default function RotaAnimada() {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
   const vanMarkerRef = useRef<any>(null);
+  const vanGlowRef = useRef<any>(null);
   const animFrameRef = useRef<number>(0);
   const phaseIndexRef = useRef(0);
   const [status, setStatus] = useState<"idle" | "fetching" | "animating" | "arrived">("idle");
@@ -48,17 +49,22 @@ export default function RotaAnimada() {
       className: "!bg-red-900 !text-white !border-0 !rounded-lg !px-3 !py-1 !text-sm !font-medium !shadow-lg",
     });
 
+    const glow = L.circleMarker([ORIGIN.lat, ORIGIN.lng], {
+      radius: 18, fillColor: "#7C3AED", color: "transparent", weight: 0, fillOpacity: 0.15,
+    }).addTo(map);
+    vanGlowRef.current = glow;
+
     const van = L.circleMarker([ORIGIN.lat, ORIGIN.lng], {
-      radius: 8, fillColor: "#7C3AED", color: "#5B21B6", weight: 3, fillOpacity: 1,
+      radius: 9, fillColor: "#7C3AED", color: "#C4B5FD", weight: 3, fillOpacity: 1,
     }).addTo(map);
     van.bindTooltip("🚐 Van Help Pet", {
-      direction: "top", offset: L.point(0, -12),
+      direction: "top", offset: L.point(0, -14),
       className: "!bg-purple-900 !text-white !border-0 !rounded-lg !px-3 !py-1 !text-sm !font-medium !shadow-lg",
     });
     vanMarkerRef.current = van;
 
     const bounds = L.latLngBounds([ORIGIN.lat, ORIGIN.lng], [DESTINATION.lat, DESTINATION.lng]);
-    map.fitBounds(bounds, { padding: [50, 50] });
+    map.fitBounds(bounds, { padding: [60, 60] });
     mapInstanceRef.current = map;
 
     return () => {
@@ -80,16 +86,20 @@ export default function RotaAnimada() {
     const map = mapInstanceRef.current;
     if (map) {
       map.eachLayer((layer: any) => {
-        if (layer instanceof (require("leaflet") as any).Polyline) layer.remove();
+        try { if (layer instanceof (require("leaflet") as any).Polyline) layer.remove(); } catch {}
       });
     }
     if (vanMarkerRef.current) {
       vanMarkerRef.current.setLatLng([ORIGIN.lat, ORIGIN.lng]);
-      vanMarkerRef.current.setStyle({ radius: 8, fillColor: "#7C3AED", color: "#5B21B6" });
+      vanMarkerRef.current.setStyle({ radius: 9, fillColor: "#7C3AED", color: "#C4B5FD" });
+    }
+    if (vanGlowRef.current) {
+      vanGlowRef.current.setLatLng([ORIGIN.lat, ORIGIN.lng]);
+      vanGlowRef.current.setStyle({ radius: 18, fillOpacity: 0.15 });
     }
     if (map) {
       const L = require("leaflet") as any;
-      map.fitBounds(L.latLngBounds([ORIGIN.lat, ORIGIN.lng], [DESTINATION.lat, DESTINATION.lng]), { padding: [50, 50] });
+      map.fitBounds(L.latLngBounds([ORIGIN.lat, ORIGIN.lng], [DESTINATION.lat, DESTINATION.lng]), { padding: [60, 60] });
     }
     setStatus("idle");
     setRouteData(null);
@@ -103,6 +113,7 @@ export default function RotaAnimada() {
     setPhaseText("Calculando rota...");
 
     let coords: [number, number][];
+    let fallback = false;
 
     try {
       const url = `https://router.project-osrm.org/route/v1/driving/${ORIGIN.lng},${ORIGIN.lat};${DESTINATION.lng},${DESTINATION.lat}?geometries=geojson&overview=full`;
@@ -127,11 +138,15 @@ export default function RotaAnimada() {
           ORIGIN.lng + (DESTINATION.lng - ORIGIN.lng) * t,
         ]);
       }
-      setRouteData({ distance: "~13 km", duration: "~15 min" });
+      fallback = true;
+    }
+
+    if (!routeData && fallback) {
+      setRouteData({ distance: "~28 km", duration: "~30 min" });
     }
 
     animateVan(coords);
-  }, [status]);
+  }, [status, routeData]);
 
   function animateVan(coords: [number, number][]) {
     const map = mapInstanceRef.current;
@@ -139,14 +154,14 @@ export default function RotaAnimada() {
     const L = require("leaflet") as any;
 
     const dimPoly = L.polyline(coords, {
-      color: "#8B5CF6", weight: 4, opacity: 0.2, dashArray: "6, 6",
+      color: "#8B5CF6", weight: 4, opacity: 0.15, dashArray: "8, 8",
     }).addTo(map);
 
     const activePoly = L.polyline([], {
       color: "#8B5CF6", weight: 4, opacity: 0.9,
     }).addTo(map);
 
-    map.fitBounds(dimPoly.getBounds(), { padding: [50, 50] });
+    map.fitBounds(dimPoly.getBounds(), { padding: [60, 60] });
 
     setStatus("animating");
     phaseIndexRef.current = 0;
@@ -154,17 +169,29 @@ export default function RotaAnimada() {
     const total = coords.length;
 
     function frame(now: number) {
-      const progress = Math.min((now - startTime) / ANIMATION_MS, 1);
+      const rawProgress = (now - startTime) / ANIMATION_MS;
+      const progress = Math.min(rawProgress, 1);
       const idx = Math.min(Math.floor(progress * (total - 1)), total - 1);
       const pos = coords[idx];
 
       vanMarkerRef.current?.setLatLng(pos);
+      vanGlowRef.current?.setLatLng(pos);
       activePoly.setLatLngs(coords.slice(0, idx + 1));
 
-      const newPhase = progress < 0.3 ? 0 : progress < 0.7 ? 1 : progress < 0.95 ? 2 : 3;
+      const pulseRadius = 9 + Math.sin(now / 150) * 2;
+      const pulseOpacity = 0.12 + Math.sin(now / 150) * 0.06;
+      vanMarkerRef.current?.setStyle({ radius: pulseRadius });
+      vanGlowRef.current?.setStyle({ radius: pulseRadius * 2.2, fillOpacity: pulseOpacity });
+
+      const newPhase = progress < 0.25 ? 0 : progress < 0.6 ? 1 : progress < 0.92 ? 2 : 3;
       if (newPhase !== phaseIndexRef.current) {
         phaseIndexRef.current = newPhase;
-        const texts = ["Saindo da base...", "🚐 A caminho...", "🚐 Chegando...", "🎉 Chegou!"];
+        const texts = [
+          "🚐 Saindo da base...",
+          "🚐 Van a caminho...",
+          "🚐 Quase chegando...",
+          "🎉 A van chegou!",
+        ];
         setPhaseText(texts[newPhase]);
       }
 
@@ -172,9 +199,10 @@ export default function RotaAnimada() {
         animFrameRef.current = requestAnimationFrame(frame);
       } else {
         setStatus("arrived");
-        dimPoly.setStyle({ opacity: 0.4, dashArray: "" });
+        dimPoly.setStyle({ opacity: 0.3, dashArray: "" });
         activePoly.setStyle({ opacity: 1 });
         vanMarkerRef.current?.setStyle({ radius: 12, fillColor: "#22C55E", color: "#16A34A" });
+        vanGlowRef.current?.setStyle({ radius: 24, fillColor: "#22C55E", fillOpacity: 0.2 });
         setPhaseText("🎉 A van chegou ao destino!");
       }
     }
