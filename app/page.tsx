@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
@@ -296,11 +297,14 @@ export default function HomePage() {
               <div className="relative w-[360px] h-[360px]">
                 <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl" />
                 <div className="absolute inset-6 border border-purple-400/10 rounded-full" />
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="text-[160px] leading-none block opacity-90">🚐</span>
-                    <p className="text-purple-300/40 text-sm mt-4">Help Pet Móvel</p>
-                  </div>
+                <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-full">
+                  <Image
+                    src="/images/van-help-pet.jpeg"
+                    alt="Van Help Pet"
+                    width={360}
+                    height={360}
+                    className="object-cover w-full h-full rounded-full"
+                  />
                 </div>
               </div>
             </motion.div>
