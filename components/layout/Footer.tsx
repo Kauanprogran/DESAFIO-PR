@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import Image from "next/image";
 
 const footerSections = [
   {
@@ -72,9 +73,9 @@ function Footer() {
 
         <div className="mt-10 pt-8 border-t border-purple-800/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2">
-              <Link href="/" className="text-lg font-bold">
-                Help Pet
+            <div className="flex items-center gap-3">
+              <Link href="/" className="flex items-center gap-2">
+                <Image src="/logo.jpeg" alt="Help Pet" width={130} height={34} className="h-8 w-auto" priority />
               </Link>
               <span className="text-purple-400/30 text-sm">|</span>
               <span className="text-purple-200/50 text-sm">CRMV registrado • Protegido LGPD</span>

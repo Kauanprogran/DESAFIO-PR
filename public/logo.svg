@@ -1,0 +1,10 @@
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="24" r="22" fill="rgba(124,58,237,0.15)" stroke="rgba(124,58,237,0.3)" stroke-width="2"/>
+  <ellipse cx="15.5" cy="22" rx="4" ry="3.8" fill="#A78BFA"/>
+  <ellipse cx="32.5" cy="22" rx="4" ry="3.8" fill="#A78BFA"/>
+  <ellipse cx="19.5" cy="17" rx="3.5" ry="3.2" fill="#A78BFA"/>
+  <ellipse cx="28.5" cy="17" rx="3.5" ry="3.2" fill="#A78BFA"/>
+  <ellipse cx="24" cy="30" rx="6" ry="5" fill="#C4B5FD"/>
+  <text x="62" y="30" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">Help</text>
+  <text x="115" y="30" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="22" font-weight="700" fill="#A78BFA">Pet</text>
+</svg>

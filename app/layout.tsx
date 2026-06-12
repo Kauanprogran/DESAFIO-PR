@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   },
   description:
     "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências no Paraná.",
+  icons: {
+    icon: "/favicon.svg",
+  },
+  openGraph: {
+    title: "Help Pet — Saúde Animal no Paraná",
+    description:
+      "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências no Paraná.",
+    url: "https://desafio-pr.vercel.app",
+    siteName: "Help Pet",
+    images: [{ url: "/logo.jpeg", width: 180, height: 48 }],
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
