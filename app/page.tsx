@@ -197,46 +197,66 @@ export default function HomePage() {
       {/* Como funciona */}
       <section className="py-24 relative overflow-hidden" style={{ background: "#0F0A2E" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <span className="pet-decoration top-10 left-[5%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
-          <span className="pet-decoration bottom-10 right-[5%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🐕</span>
-          <span className="pet-decoration top-1/3 left-[30%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.5s" }}>🐱</span>
-          <span className="pet-decoration bottom-1/4 right-[20%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1s" }}>🦴</span>
-          <span className="pet-decoration top-[15%] right-[8%] animate-float-med" style={{ opacity: 0.06, animationDelay: "2s" }}>🐰</span>
-          <span className="pet-decoration bottom-[10%] left-[12%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐶</span>
-          <span className="pet-decoration top-[5%] left-[55%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1.8s" }}>🐾</span>
-          <span className="pet-decoration bottom-[40%] right-[35%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.7s" }}>🐕</span>
+          <div className="absolute top-1/3 left-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-purple-400/5 rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp()} className="text-center mb-16">
-            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium border border-purple-400/20 text-purple-200 bg-white/5 mb-5">
               Como funciona
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Cuidado em <span className="text-gradient bg-gradient-to-r from-purple-400 to-purple-200">3 passos</span>
+              Cuidado em{" "}
+              <span className="text-gradient bg-gradient-to-r from-purple-400 via-purple-300 to-purple-200">
+                3 passos simples
+              </span>
             </h2>
-            <p className="text-lg text-purple-200/50 max-w-xl mx-auto">
+            <p className="text-base text-purple-300/50 max-w-lg mx-auto">
               Você escolhe o serviço, a gente cuida do resto.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { step: 1, icon: "📱", title: "Cadastre-se", desc: "Crie sua conta gratuita em menos de 2 minutos. Cadastre seu pet e acesse todos os serviços." },
-              { step: 2, icon: "🔍", title: "Escolha o serviço", desc: "Navegue pelos serviços, agende consultas ou solicite Pet SOS em emergências." },
-              { step: 3, icon: "🏠", title: "Atendimento em casa", desc: "O veterinário vai até você. Emergências em minutos. Adoções e doações com suporte total." },
-            ].map((item) => (
-              <motion.div key={item.step} {...fadeUp(item.step * 0.15)}>
-                <div className="glass-card rounded-2xl p-8 text-center h-full">
-                  <span className="text-5xl block mb-6">{item.icon}</span>
-                  <div className="w-12 h-12 rounded-full bg-purple-600/30 text-white font-bold text-lg flex items-center justify-center mx-auto mb-5 border border-purple-400/20">
-                    {item.step}
+          <div className="relative">
+            <div className="hidden md:block absolute top-20 left-[calc(16.66%+1.5rem)] right-[calc(16.66%+1.5rem)] h-0.5 bg-gradient-to-r from-purple-600/40 via-purple-400/40 to-purple-600/40" />
+
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              {[
+                { step: "01", icon: "📱", title: "Cadastre-se", desc: "Crie sua conta gratuita em menos de 2 minutos. Cadastre seu pet e acesse todos os serviços." },
+                { step: "02", icon: "🔍", title: "Escolha o serviço", desc: "Navegue pelos serviços, agende consultas ou solicite Pet SOS em emergências." },
+                { step: "03", icon: "🏠", title: "Atendimento em casa", desc: "O veterinário vai até você com tudo que seu pet precisa. Cuidado completo e humanizado." },
+              ].map((item, i) => (
+                <motion.div key={item.step} {...fadeUp(i * 0.15)} className="relative">
+                  <div className="glass-card rounded-2xl p-8 text-center h-full flex flex-col items-center relative z-10 hover:-translate-y-1 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-700/20 border border-purple-400/20 flex items-center justify-center mb-6">
+                      <span className="text-3xl">{item.icon}</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xs font-mono font-semibold text-purple-400/60 tracking-widest">
+                        PASSO {item.step}
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-purple-500/40" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                    <p className="text-sm text-purple-300/50 leading-relaxed max-w-xs">{item.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                  <p className="text-purple-200/50 leading-relaxed">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
+
+          <motion.div {...fadeUp(0.4)} className="text-center mt-12">
+            <Link href="/register">
+              <Button
+                variant="outline"
+                size="lg"
+                style={{ borderColor: "rgba(255,255,255,0.15)", color: "#fff" }}
+                className="hover:bg-white/5"
+              >
+                Começar agora →
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
