@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências no Paraná.",
     url: "https://desafio-pr.vercel.app",
     siteName: "Help Pet",
-    images: [{ url: "/logo.jpeg", width: 180, height: 48 }],
+    images: [{ url: "/logo.png", width: 180, height: 48 }],
     locale: "pt_BR",
     type: "website",
   },
