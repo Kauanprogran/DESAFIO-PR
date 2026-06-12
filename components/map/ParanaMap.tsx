@@ -68,7 +68,7 @@ export default function ParanaMap() {
   }, []);
 
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl border border-purple-100">
+    <div className="relative w-full h-[280px] md:h-[350px] rounded-2xl overflow-hidden shadow-xl border border-purple-100">
       <div ref={mapRef} className="w-full h-full" />
     </div>
   );

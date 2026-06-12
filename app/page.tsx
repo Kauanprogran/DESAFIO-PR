@@ -6,11 +6,22 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import {
+  Stethoscope,
+  Syringe,
+  AlertTriangle,
+  Scissors,
+  FlaskConical,
+  Bone,
+  Package,
+  PawPrint,
+  Pill,
+} from "lucide-react";
 
 const ParanaMap = dynamic(() => import("@/components/map/ParanaMap"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[400px] md:h-[500px] rounded-2xl bg-purple-950/50 animate-pulse flex items-center justify-center">
+    <div className="w-full h-[280px] md:h-[350px] rounded-2xl bg-purple-950/50 animate-pulse flex items-center justify-center">
       <span className="text-purple-400 text-4xl">🗺️</span>
     </div>
   ),
@@ -25,47 +36,47 @@ const fadeUp = (delay = 0) => ({
 
 const servicos = [
   {
-    icon: "🏥",
+    icon: Stethoscope,
     title: "Consultas Veterinárias",
     desc: "Atendimento clínico geral no conforto da sua casa. Equipamentos completos para consulta, exames básicos e prescrição.",
   },
   {
-    icon: "💉",
+    icon: Syringe,
     title: "Vacinação",
     desc: "Vacinas obrigatórias e opcionais com certificado digital. Caderneta sempre atualizada no app.",
   },
   {
-    icon: "🆘",
+    icon: AlertTriangle,
     title: "Pet SOS",
     desc: "Emergência 24h com geolocalização. Veterinário mais próximo em minutos.",
   },
   {
-    icon: "✂️",
+    icon: Scissors,
     title: "Castração",
     desc: "Procedimento seguro com equipe especializada e pós-operatório completo.",
   },
   {
-    icon: "🧪",
+    icon: FlaskConical,
     title: "Exames Laboratoriais",
     desc: "Coleta domiciliar sem estresse. Resultados em até 48h com laudo detalhado.",
   },
   {
-    icon: "🦷",
+    icon: Bone,
     title: "Odontologia",
     desc: "Limpeza, extração e tratamento bucal. Saúde bucal essencial para o bem-estar do seu pet.",
   },
   {
-    icon: "🏠",
+    icon: Package,
     title: "Banco de Ração",
     desc: "Distribuição de ração para tutores em situação de vulnerabilidade. Cadastre-se e solicite ajuda.",
   },
   {
-    icon: "🐱",
+    icon: PawPrint,
     title: "Adoção Responsável",
     desc: "Encontre seu novo amigo. Processo transparente com suporte total da equipe.",
   },
   {
-    icon: "💊",
+    icon: Pill,
     title: "Farmácia Veterinária",
     desc: "Medicamentos com entrega domiciliar. Prescrição digital válida em todo Brasil.",
   },
@@ -85,6 +96,16 @@ export default function HomePage() {
           <span className="pet-decoration bottom-32 right-[8%] animate-float-slow" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.5s" }}>🦴</span>
           <span className="pet-decoration top-1/2 left-[5%] animate-float-med" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "1.5s" }}>🐰</span>
           <span className="pet-decoration top-2/3 right-[5%] animate-float-fast" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.8s" }}>🐶</span>
+          <span className="pet-decoration top-[15%] left-[30%] animate-float-slow" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "2.5s" }}>🐾</span>
+          <span className="pet-decoration top-[40%] right-[25%] animate-float-med" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "1.2s" }}>🐕</span>
+          <span className="pet-decoration bottom-[20%] left-[35%] animate-float-fast" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "0.3s" }}>🐱</span>
+          <span className="pet-decoration bottom-[5%] left-[55%] animate-float-slow" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "3s" }}>🦴</span>
+          <span className="pet-decoration top-[60%] left-[8%] animate-float-med" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "1.8s" }}>🐰</span>
+          <span className="pet-decoration top-[5%] right-[35%] animate-float-fast" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.5s" }}>🐶</span>
+          <span className="pet-decoration bottom-[60%] right-[8%] animate-float-slow" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "2s" }}>🐾</span>
+          <span className="pet-decoration top-[25%] left-[60%] animate-float-med" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.7s" }}>🐱</span>
+          <span className="pet-decoration bottom-[35%] left-[5%] animate-float-fast" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "1.5s" }}>🐕</span>
+          <span className="pet-decoration top-[50%] right-[40%] animate-float-slow" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "2.2s" }}>🦴</span>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -100,22 +121,28 @@ export default function HomePage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-700/30 text-purple-800 bg-white/60 mb-6">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-700/30 text-purple-950 bg-white/60 mb-6">
                   🐾 Saúde animal em todo o Paraná
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-purple-900 leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-purple-950 leading-tight mb-6">
                 Cuidado veterinário{" "}
-                <span className="text-gradient bg-gradient-to-r from-purple-800 to-purple-600">
+                 <span className="text-gradient bg-gradient-to-r from-purple-950 to-purple-800">
                   onde seu pet está
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-purple-700/80 max-w-xl mb-10 mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-lg sm:text-xl text-purple-800/90 max-w-xl mb-6 mx-auto lg:mx-0 leading-relaxed">
                 Agende consultas, veterinários parceiros, emergência 24h, banco de ração
                 e adoção responsável. Tudo perto de você no estado do Paraná.
               </p>
+
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-purple-800/70 mb-8 justify-center lg:justify-start">
+                <span className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" /> CRMV registrado</span>
+                <span className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" /> Dados protegidos LGPD</span>
+                <span className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" /> Atendimento humanizado</span>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link href="/servicos">
@@ -127,7 +154,7 @@ export default function HomePage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    style={{ borderColor: "#7C3AED", color: "#7C3AED" }}
+                    style={{ borderColor: "#4C1D95", color: "#4C1D95" }}
                     className="hover:bg-purple-50"
                   >
                     🆘 Pet SOS 24h
@@ -158,7 +185,17 @@ export default function HomePage() {
       </section>
 
       {/* Como funciona */}
-      <section className="py-24" style={{ background: "#0F0A2E" }}>
+      <section className="py-24 relative overflow-hidden" style={{ background: "#0F0A2E" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <span className="pet-decoration top-10 left-[5%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
+          <span className="pet-decoration bottom-10 right-[5%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🐕</span>
+          <span className="pet-decoration top-1/3 left-[30%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.5s" }}>🐱</span>
+          <span className="pet-decoration bottom-1/4 right-[20%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1s" }}>🦴</span>
+          <span className="pet-decoration top-[15%] right-[8%] animate-float-med" style={{ opacity: 0.06, animationDelay: "2s" }}>🐰</span>
+          <span className="pet-decoration bottom-[10%] left-[12%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐶</span>
+          <span className="pet-decoration top-[5%] left-[55%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1.8s" }}>🐾</span>
+          <span className="pet-decoration bottom-[40%] right-[35%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.7s" }}>🐕</span>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp()} className="text-center mb-16">
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
@@ -193,8 +230,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="section-divider" style={{ background: "#0F0A2E" }}><div className="section-divider-diamond" /></div>
+
       {/* Serviços */}
-      <section id="servicos" className="py-24" style={{ background: "#1A1045" }}>
+      <section id="servicos" className="py-24 relative overflow-hidden" style={{ background: "#1A1045" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <span className="pet-decoration top-5 left-[10%] animate-float-slow" style={{ opacity: 0.06 }}>🐱</span>
+          <span className="pet-decoration top-20 right-[8%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐾</span>
+          <span className="pet-decoration bottom-10 left-[20%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.5s" }}>🐕</span>
+          <span className="pet-decoration bottom-32 right-[15%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🦴</span>
+          <span className="pet-decoration top-[40%] left-[5%] animate-float-med" style={{ opacity: 0.06, animationDelay: "2s" }}>🐰</span>
+          <span className="pet-decoration top-[60%] right-[5%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐶</span>
+          <span className="pet-decoration top-[15%] left-[45%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1.2s" }}>🐾</span>
+          <span className="pet-decoration bottom-[20%] right-[40%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.8s" }}>🐱</span>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp()} className="text-center mb-16">
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
@@ -220,7 +269,7 @@ export default function HomePage() {
                 <Link href={servico.title === "Pet SOS" ? "/pet-sos" : servico.title === "Banco de Ração" ? "/banco-de-racao" : servico.title === "Adoção Responsável" ? "/adocao" : "/servicos"}>
                   <div className="glass-card rounded-2xl p-6 h-full cursor-pointer group">
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="text-3xl">{servico.icon}</span>
+                      <servico.icon className="w-8 h-8 text-purple-300" strokeWidth={1.5} />
                       <h3 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">
                         {servico.title}
                       </h3>
@@ -243,11 +292,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="section-divider" style={{ background: "#1A1045" }}><div className="section-divider-diamond" /></div>
+
       {/* Nossa Van */}
       <section className="py-24 relative overflow-hidden" style={{ background: "#0F0A2E" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <span className="pet-decoration top-10 left-[5%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
           <span className="pet-decoration bottom-10 right-[5%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐕</span>
+          <span className="pet-decoration top-1/2 left-[20%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐱</span>
+          <span className="pet-decoration bottom-1/3 right-[20%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "2s" }}>🦴</span>
+          <span className="pet-decoration top-[30%] right-[35%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.8s" }}>🐰</span>
+          <span className="pet-decoration bottom-[5%] left-[40%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🐶</span>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -312,6 +367,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="section-divider" style={{ background: "#0F0A2E" }}><div className="section-divider-diamond" /></div>
+
       {/* Pet SOS */}
       <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1A1045 0%, #0F0A2E 100%)" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -319,6 +376,10 @@ export default function HomePage() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-600/5 rounded-full blur-3xl" />
           <span className="pet-decoration top-10 left-[10%] animate-float-slow">🐾</span>
           <span className="pet-decoration bottom-10 right-[10%] animate-float-med" style={{ animationDelay: "1.5s" }}>🐶</span>
+          <span className="pet-decoration top-20 right-[30%] animate-float-fast" style={{ animationDelay: "0.5s" }}>🐾</span>
+          <span className="pet-decoration bottom-20 left-[30%] animate-float-slow" style={{ animationDelay: "2s" }}>🐕</span>
+          <span className="pet-decoration top-[40%] left-[15%] animate-float-med" style={{ animationDelay: "1s" }}>🐱</span>
+          <span className="pet-decoration bottom-[30%] right-[20%] animate-float-fast" style={{ animationDelay: "0.3s" }}>🦴</span>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -373,10 +434,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="section-divider" style={{ background: "linear-gradient(135deg, #1A1045 0%, #0F0A2E 100%)" }}><div className="section-divider-diamond" /></div>
+
       {/* Mapa Paraná */}
       <section className="py-24 relative overflow-hidden" style={{ background: "#1A1045" }}>
         <span className="pet-decoration top-10 right-[15%] animate-float-slow">🐾</span>
         <span className="pet-decoration bottom-10 left-[8%] animate-float-med" style={{ animationDelay: "1s" }}>🐰</span>
+        <span className="pet-decoration top-1/3 left-[15%] animate-float-fast" style={{ animationDelay: "0.5s" }}>🐕</span>
+        <span className="pet-decoration bottom-1/4 right-[25%] animate-float-slow" style={{ animationDelay: "2s" }}>🐱</span>
+        <span className="pet-decoration top-[50%] right-[10%] animate-float-med" style={{ animationDelay: "1.2s" }}>🦴</span>
+        <span className="pet-decoration bottom-[40%] left-[30%] animate-float-fast" style={{ animationDelay: "0.3s" }}>🐶</span>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp()} className="text-center mb-16">
@@ -407,6 +474,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="section-divider" style={{ background: "#1A1045" }}><div className="section-divider-diamond" /></div>
+
       {/* CTA */}
       <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #2D1B69 0%, #1A1045 50%, #0F0A2E 100%)" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -414,24 +483,33 @@ export default function HomePage() {
           <div className="absolute -bottom-40 -left-40 w-96 h-96 border border-purple-500/10 rounded-full" />
           <span className="pet-decoration top-20 left-[10%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
           <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐱</span>
+          <span className="pet-decoration top-1/2 left-[10%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐕</span>
+          <span className="pet-decoration bottom-1/3 right-[30%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "2s" }}>🦴</span>
+          <span className="pet-decoration top-[30%] right-[15%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.8s" }}>🐰</span>
+          <span className="pet-decoration bottom-[10%] left-[30%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🐶</span>
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div {...fadeUp()}>
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-6">
-              💜 Comece agora
+              🎁 1ª consulta gratuita
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
               Seu pet merece cuidado de qualidade
             </h2>
-            <p className="text-purple-200/50 text-lg lg:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-              Cadastre-se gratuitamente e tenha acesso a consultas, banco de ração,
-              adoção responsável e Pet SOS 24h em todo o Paraná.
+            <p className="text-purple-200/50 text-lg lg:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+              Cadastre-se hoje e ganhe <strong className="text-white">1ª consulta veterinária gratuita</strong>. 
+              Cuidado completo sem custo inicial para seu pet.
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-purple-300/50 mb-8">
+              <span className="inline-flex items-center gap-1.5">✓ CRMV registrado</span>
+              <span className="inline-flex items-center gap-1.5">✓ Dados protegidos LGPD</span>
+              <span className="inline-flex items-center gap-1.5">✓ Atendimento humanizado</span>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/register">
                 <Button size="lg" variant="primary">
-                  Criar conta gratuita
+                  Quero minha consulta grátis
                 </Button>
               </Link>
               <Link href="/servicos">
@@ -441,7 +519,7 @@ export default function HomePage() {
                   style={{ borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}
                   className="hover:bg-white/10"
                 >
-                  Conhecer serviços
+                  Ver todos os serviços
                 </Button>
               </Link>
             </div>

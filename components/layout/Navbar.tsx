@@ -55,7 +55,7 @@ function Navbar() {
             ))}
             <Link
               href="/login"
-              className="ml-3 px-4 py-2 text-sm font-semibold text-purple-900 bg-white rounded-lg hover:bg-purple-50 hover:shadow-lg hover:shadow-white/20 transition-all duration-200"
+              className="ml-3 px-4 py-2 text-sm font-semibold text-white bg-white/10 backdrop-blur border border-purple-300/30 rounded-lg hover:bg-white/20 transition-all duration-200"
             >
               Entrar
             </Link>
@@ -107,7 +107,7 @@ function Navbar() {
               <Link
                 href="/login"
                 onClick={() => setMenuOpen(false)}
-                className="block mt-2 px-4 py-3 text-center font-semibold text-purple-900 bg-white rounded-lg hover:bg-purple-50 transition-all"
+                className="block mt-2 px-4 py-3 text-center font-semibold text-white bg-white/10 backdrop-blur border border-purple-300/30 rounded-lg hover:bg-white/20 transition-all"
               >
                 Entrar
               </Link>

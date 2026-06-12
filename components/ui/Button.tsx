@@ -6,6 +6,7 @@ import {
   forwardRef,
   useState,
   useEffect,
+  useCallback,
 } from "react";
 import { motion } from "framer-motion";
 
@@ -63,12 +64,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       icon,
       children,
       className = "",
+      onClick,
       ...props
     },
     ref
   ) => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [showError, setShowError] = useState(false);
+    const [ripples, setRipples] = useState<Array<{ x: number; y: number; id: number }>>([]);
 
     useEffect(() => {
       if (success) {
@@ -86,7 +89,27 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       }
     }, [error]);
 
+    useEffect(() => {
+      if (ripples.length > 0) {
+        const t = setTimeout(() => setRipples((prev) => prev.slice(1)), 600);
+        return () => clearTimeout(t);
+      }
+    }, [ripples]);
+
     const isDisabled = disabled || loading;
+
+    const handleClick = useCallback(
+      (e: React.MouseEvent<HTMLButtonElement>) => {
+        if (isDisabled) return;
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const id = Date.now() + Math.random();
+        setRipples((prev) => [...prev, { x, y, id }]);
+        onClick?.(e);
+      },
+      [isDisabled, onClick]
+    );
 
     const base =
       "inline-flex items-center justify-center gap-2 font-semibold border-2 rounded-lg relative select-none focus-visible:outline-3 focus-visible:outline-purple-600 focus-visible:outline-offset-2 no-underline overflow-hidden";
@@ -108,6 +131,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled}
         aria-disabled={isDisabled || undefined}
         aria-busy={loading || undefined}
+        onClick={handleClick}
         {...(props as any)}
       >
         <motion.span
@@ -116,6 +140,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           whileHover={{ x: "100%" }}
           transition={{ duration: 0.5 }}
         />
+        {ripples.map((ripple) => (
+          <span
+            key={ripple.id}
+            className="absolute rounded-full bg-white/40 pointer-events-none animate-ripple"
+            style={{
+              left: ripple.x - 8,
+              top: ripple.y - 8,
+              width: 16,
+              height: 16,
+            }}
+          />
+        ))}
         {loading && (
           <span
             className="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"

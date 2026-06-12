@@ -37,6 +37,13 @@ const footerSections = [
   },
 ];
 
+const socialLinks = [
+  { href: "https://instagram.com/helppet", label: "Instagram", icon: "📸" },
+  { href: "https://facebook.com/helppet", label: "Facebook", icon: "👍" },
+  { href: "https://wa.me/554184158693", label: "WhatsApp", icon: "💬" },
+  { href: "mailto:contato@helppet.com.br", label: "E-mail", icon: "📧" },
+];
+
 function Footer() {
   return (
     <footer className="bg-bg-dark text-white">
@@ -63,15 +70,41 @@ function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-purple-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="text-lg font-bold">
-              Help Pet
-            </Link>
+        <div className="mt-10 pt-8 border-t border-purple-800/50">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-2">
+              <Link href="/" className="text-lg font-bold">
+                Help Pet
+              </Link>
+              <span className="text-purple-400/30 text-sm">|</span>
+              <span className="text-purple-200/50 text-sm">CRMV registrado • Protegido LGPD</span>
+            </div>
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-purple-100/60 hover:text-white text-sm transition-colors"
+                  aria-label={social.label}
+                >
+                  <span aria-hidden="true">{social.icon}</span>
+                  <span className="hidden sm:inline">{social.label}</span>
+                </a>
+              ))}
+            </div>
           </div>
-          <p className="text-purple-100/50 text-sm text-center">
-            &copy; {new Date().getFullYear()} Help Pet. Todos os direitos reservados.
-          </p>
+          <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-purple-300/40">
+              <span>🔒 Ambiente seguro</span>
+              <span>📋 CRMV-PR ativo</span>
+              <span>🤝 Parceiros verificados</span>
+            </div>
+            <p className="text-purple-100/40 text-xs text-center">
+              &copy; {new Date().getFullYear()} Help Pet. Todos os direitos reservados.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
