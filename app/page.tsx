@@ -345,22 +345,17 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
             {[
-              { name: "Ração Premium Cães", badge: "🥩 Ração", img: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop&q=80" },
-              { name: "Ração Premium Gatos", badge: "🐟 Ração", img: "https://images.unsplash.com/photo-1589924691995-400dc9e7b485?w=400&h=300&fit=crop&q=80" },
-              { name: "Petiscos Naturais", badge: "🍪 Petisco", img: "https://images.unsplash.com/photo-1546191559-f8b3b614f357?w=400&h=300&fit=crop&q=80" },
-              { name: "Brinquedo Interativo", badge: "🎾 Brinquedo", img: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=400&h=300&fit=crop&q=80" },
-              { name: "Cama Conforto", badge: "🛏️ Acessório", img: "https://images.unsplash.com/photo-1541188495358-1bba4f3b5c4c?w=400&h=300&fit=crop&q=80" },
-              { name: "Kit Higiene", badge: "🧴 Higiene", img: "https://images.unsplash.com/photo-1628009368231-3bb7cfcb8d7d?w=400&h=300&fit=crop&q=80" },
+              { name: "Ração Premium Cães", badge: "🥩 Ração", emoji: "🥩", gradient: "from-purple-600/30 to-purple-800/30" },
+              { name: "Ração Premium Gatos", badge: "🐟 Ração", emoji: "🐟", gradient: "from-purple-500/30 to-purple-700/30" },
+              { name: "Petiscos Naturais", badge: "🍪 Petisco", emoji: "🍪", gradient: "from-purple-600/30 to-purple-800/30" },
+              { name: "Brinquedo Interativo", badge: "🎾 Brinquedo", emoji: "🎾", gradient: "from-purple-500/30 to-purple-700/30" },
+              { name: "Cama Conforto", badge: "🛏️ Acessório", emoji: "🛏️", gradient: "from-purple-600/30 to-purple-800/30" },
+              { name: "Kit Higiene", badge: "🧴 Higiene", emoji: "🧴", gradient: "from-purple-500/30 to-purple-700/30" },
             ].map((prod, i) => (
               <motion.div key={prod.name} {...fadeUp(i * 0.08)}>
                 <div className="glass-card rounded-xl overflow-hidden group h-full">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
-                      src={prod.img}
-                      alt={prod.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      loading="lazy"
-                    />
+                  <div className={`aspect-[4/3] bg-gradient-to-br ${prod.gradient} flex items-center justify-center border-b border-purple-400/10`}>
+                    <span className="text-6xl group-hover:scale-110 transition-transform duration-500">{prod.emoji}</span>
                   </div>
                   <div className="p-4">
                     <span className="inline-block text-xs font-semibold text-purple-300 bg-purple-500/10 px-2.5 py-1 rounded-full mb-2">
