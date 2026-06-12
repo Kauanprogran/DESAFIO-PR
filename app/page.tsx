@@ -70,13 +70,6 @@ const servicos = [
   },
 ];
 
-const stats = [
-  { value: "50+", label: "cidades no Paraná" },
-  { value: "10K+", label: "pets cuidados" },
-  { value: "200+", label: "veterinários" },
-  { value: "98%", label: "satisfação" },
-];
-
 export default function HomePage() {
   return (
     <>
@@ -141,19 +134,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex items-center gap-8 mt-12 justify-center lg:justify-start"
-              >
-                {stats.slice(0, 3).map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <p className="text-3xl lg:text-4xl font-bold text-purple-200">{stat.value}</p>
-                    <p className="text-sm text-purple-300/50">{stat.label}</p>
-                  </div>
-                ))}
-              </motion.div>
+
             </motion.div>
 
             <motion.div
@@ -353,29 +334,6 @@ export default function HomePage() {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-purple-300/40">🟣 Cidades com cobertura • Em expansão para mais municípios</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Estatísticas */}
-      <section className="py-16" style={{ background: "#0F0A2E" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="text-center p-8 rounded-2xl glass-card"
-              >
-                <p className="text-4xl lg:text-5xl font-bold text-gradient bg-gradient-to-r from-purple-400 to-purple-200 mb-2">
-                  {stat.value}
-                </p>
-                <p className="text-purple-200/50 font-medium">{stat.label}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
