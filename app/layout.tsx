@@ -6,11 +6,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "VetMóvel — Saúde Animal ao seu Alcance",
+    default: "VetMóvel — Saúde Animal no Paraná",
     template: "%s | VetMóvel",
   },
   description:
-    "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências.",
+    "Plataforma brasileira de saúde animal que conecta tutores de pets a serviços veterinários móveis, adoção, banco de ração e emergências no Paraná.",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased">
+      <body>
         <Navbar />
         <main className="min-h-screen pt-16">{children}</main>
         <WhatsAppButton />
