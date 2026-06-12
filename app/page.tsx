@@ -74,16 +74,16 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden min-h-[90vh] flex items-center" style={{ background: "linear-gradient(160deg, #0F0A2E 0%, #1A1045 40%, #2D1B69 100%)" }}>
+      <section className="relative overflow-hidden min-h-[90vh] flex items-center" style={{ background: "linear-gradient(135deg, #8B5CF6 0%, #A78BFA 35%, #BEBBE8 65%, #DDD6FE 100%)" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl" />
-          <span className="pet-decoration top-20 left-[8%] animate-float-slow">🐾</span>
-          <span className="pet-decoration top-32 right-[12%] animate-float-med" style={{ animationDelay: "1s" }}>🐕</span>
-          <span className="pet-decoration bottom-48 left-[15%] animate-float-fast" style={{ animationDelay: "2s" }}>🐱</span>
-          <span className="pet-decoration bottom-32 right-[8%] animate-float-slow" style={{ animationDelay: "0.5s" }}>🦴</span>
-          <span className="pet-decoration top-1/2 left-[5%] animate-float-med" style={{ animationDelay: "1.5s" }}>🐰</span>
-          <span className="pet-decoration top-2/3 right-[5%] animate-float-fast" style={{ animationDelay: "0.8s" }}>🐶</span>
+          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-purple-300/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-purple-200/15 rounded-full blur-3xl" />
+          <span className="pet-decoration top-20 left-[8%] animate-float-slow" style={{ opacity: 0.15, color: "#7C3AED" }}>🐾</span>
+          <span className="pet-decoration top-32 right-[12%] animate-float-med" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "1s" }}>🐕</span>
+          <span className="pet-decoration bottom-48 left-[15%] animate-float-fast" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "2s" }}>🐱</span>
+          <span className="pet-decoration bottom-32 right-[8%] animate-float-slow" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.5s" }}>🦴</span>
+          <span className="pet-decoration top-1/2 left-[5%] animate-float-med" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "1.5s" }}>🐰</span>
+          <span className="pet-decoration top-2/3 right-[5%] animate-float-fast" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.8s" }}>🐶</span>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -99,19 +99,19 @@ export default function HomePage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-6">
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-700/30 text-purple-800 bg-white/60 mb-6">
                   🐾 Saúde animal em todo o Paraná
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-purple-900 leading-tight mb-6">
                 Cuidado veterinário{" "}
-                <span className="text-gradient bg-gradient-to-r from-purple-300 via-purple-100 to-purple-200">
+                <span className="text-gradient bg-gradient-to-r from-purple-800 to-purple-600">
                   onde seu pet está
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-purple-200/60 max-w-xl mb-10 mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-lg sm:text-xl text-purple-700/80 max-w-xl mb-10 mx-auto lg:mx-0 leading-relaxed">
                 Agende consultas, veterinários parceiros, emergência 24h, banco de ração
                 e adoção responsável. Tudo perto de você no estado do Paraná.
               </p>
@@ -126,14 +126,13 @@ export default function HomePage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    style={{ borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}
-                    className="hover:bg-white/10"
+                    style={{ borderColor: "#7C3AED", color: "#7C3AED" }}
+                    className="hover:bg-purple-50"
                   >
                     🆘 Pet SOS 24h
                   </Button>
                 </Link>
               </div>
-
 
             </motion.div>
 

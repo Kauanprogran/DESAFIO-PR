@@ -3,7 +3,7 @@
 @theme {
   --gradient-primary: linear-gradient(135deg, #6B21A8 0%, #4E2096 50%, #3B1278 100%);
   --gradient-soft: linear-gradient(135deg, #7C3AED 0%, #6B21A8 100%);
-  --gradient-hero: linear-gradient(160deg, #7C3AED 0%, #4E2096 60%, #2D1B69 100%);
+  --gradient-hero: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 35%, #BEBBE8 65%, #DDD6FE 100%);
   --gradient-card: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
 
   --color-bg-dark: #0F0A2E;
