@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { PetSOSButton } from "@/components/shared/PetSOSButton";
 import {
   Stethoscope,
   Syringe,
@@ -453,15 +454,9 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <a
-                href="https://wa.me/554184158693?text=URGÊNCIA!%20Meu%20pet%20precisa%20de%20atendimento%20veterinário%20imediato.%20Preciso%20de%20ajuda%20agora!"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="danger" size="lg">
-                  🆘 Acionar Pet SOS agora
-                </Button>
-              </a>
+              <PetSOSButton variant="danger" size="lg">
+                🆘 Acionar Pet SOS agora
+              </PetSOSButton>
             </motion.div>
 
             <motion.div
