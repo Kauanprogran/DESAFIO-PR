@@ -322,7 +322,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="section-divider" style={{ background: "#1A1045" }}><div className="section-divider-diamond" /></div>
+      {/* Catálogo de Produtos */}
+      <section className="py-24 relative overflow-hidden" style={{ background: "#1A1045" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-600/5 rounded-full blur-3xl" />
+          <span className="pet-decoration top-10 left-[8%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
+          <span className="pet-decoration bottom-10 right-[8%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐕</span>
+          <span className="pet-decoration top-1/4 right-[15%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.5s" }}>🐱</span>
+          <span className="pet-decoration bottom-1/3 left-[10%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1.8s" }}>🦴</span>
+          <span className="pet-decoration bottom-[20%] right-[25%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐶</span>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp()} className="text-center mb-14">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium border border-purple-400/20 text-purple-200 bg-white/5 mb-5">
+              Produtos
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
+              Para o dia a dia do{" "}
+              <span className="text-gradient bg-gradient-to-r from-purple-400 via-purple-300 to-purple-200">seu pet</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+            {[
+              { name: "Ração Premium Cães", badge: "🥩 Ração", img: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop&q=80" },
+              { name: "Ração Premium Gatos", badge: "🐟 Ração", img: "https://images.unsplash.com/photo-1589924691995-400dc9e7b485?w=400&h=300&fit=crop&q=80" },
+              { name: "Petiscos Naturais", badge: "🍪 Petisco", img: "https://images.unsplash.com/photo-1546191559-f8b3b614f357?w=400&h=300&fit=crop&q=80" },
+              { name: "Brinquedo Interativo", badge: "🎾 Brinquedo", img: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=400&h=300&fit=crop&q=80" },
+              { name: "Cama Conforto", badge: "🛏️ Acessório", img: "https://images.unsplash.com/photo-1541188495358-1bba4f3b5c4c?w=400&h=300&fit=crop&q=80" },
+              { name: "Kit Higiene", badge: "🧴 Higiene", img: "https://images.unsplash.com/photo-1628009368231-3bb7cfcb8d7d?w=400&h=300&fit=crop&q=80" },
+            ].map((prod, i) => (
+              <motion.div key={prod.name} {...fadeUp(i * 0.08)}>
+                <div className="glass-card rounded-xl overflow-hidden group h-full">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={prod.img}
+                      alt={prod.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <span className="inline-block text-xs font-semibold text-purple-300 bg-purple-500/10 px-2.5 py-1 rounded-full mb-2">
+                      {prod.badge}
+                    </span>
+                    <h3 className="text-sm font-semibold text-white leading-snug">{prod.name}</h3>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider" style={{ background: "#0F0A2E" }}><div className="section-divider-diamond" /></div>
 
       {/* Nossa Van */}
       <section className="py-24 relative overflow-hidden" style={{ background: "#0F0A2E" }}>

@@ -37,9 +37,27 @@ function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="text-xl font-bold text-white tracking-tight hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2.5 group"
           >
-            Help Pet
+            <svg
+              width="34"
+              height="34"
+              viewBox="0 0 34 34"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="flex-shrink-0"
+            >
+              <circle cx="17" cy="17" r="16" fill="rgba(124,58,237,0.15)" stroke="rgba(124,58,237,0.3)" strokeWidth="1.5" />
+              <ellipse cx="11" cy="15" rx="3" ry="2.8" fill="#A78BFA" />
+              <ellipse cx="23" cy="15" rx="3" ry="2.8" fill="#A78BFA" />
+              <ellipse cx="14" cy="11" rx="2.5" ry="2.3" fill="#A78BFA" />
+              <ellipse cx="20" cy="11" rx="2.5" ry="2.3" fill="#A78BFA" />
+              <ellipse cx="17" cy="21" rx="4.5" ry="3.5" fill="#C4B5FD" />
+            </svg>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg font-bold text-white tracking-tight">Help</span>
+              <span className="text-lg font-bold text-purple-300 tracking-tight">Pet</span>
+            </div>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1" aria-label="Principal">
