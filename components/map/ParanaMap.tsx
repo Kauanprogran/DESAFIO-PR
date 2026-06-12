@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import "leaflet/dist/leaflet.css";
 
 const cities = [
   { name: "Curitiba", lat: -25.429, lng: -49.271, label: "📍 Sede" },
@@ -22,46 +23,41 @@ export default function ParanaMap() {
   useEffect(() => {
     if (typeof window === "undefined" || mapInstanceRef.current) return;
 
-    const initMap = async () => {
-      const L = await import("leaflet");
-      await import("leaflet/dist/leaflet.css");
+    const L = require("leaflet") as any;
 
-      if (!mapRef.current || mapInstanceRef.current) return;
+    if (!mapRef.current || mapInstanceRef.current) return;
 
-      const map = L.map(mapRef.current, {
-        center: [-24.5, -51.5],
-        zoom: 7.5,
-        zoomControl: true,
-        scrollWheelZoom: true,
-      });
+    const map = L.map(mapRef.current, {
+      center: [-24.5, -51.5],
+      zoom: 7.5,
+      zoomControl: true,
+      scrollWheelZoom: true,
+    });
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "",
-        maxZoom: 18,
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "",
+      maxZoom: 18,
+    }).addTo(map);
+
+    cities.forEach((city: any) => {
+      const marker = L.circleMarker([city.lat, city.lng], {
+        radius: 10,
+        fillColor: "#7C3AED",
+        color: "#5B21B6",
+        weight: 2,
+        opacity: 1,
+        fillOpacity: 0.7,
       }).addTo(map);
 
-      cities.forEach((city) => {
-        const marker = L.circleMarker([city.lat, city.lng], {
-          radius: 10,
-          fillColor: "#7C3AED",
-          color: "#5B21B6",
-          weight: 2,
-          opacity: 1,
-          fillOpacity: 0.7,
-        }).addTo(map);
-
-        marker.bindTooltip(city.name, {
-          permanent: false,
-          direction: "top",
-          offset: L.point(0, -10),
-          className: "!bg-purple-900 !text-white !border-0 !rounded-lg !px-3 !py-1 !text-sm !font-medium !shadow-lg",
-        });
+      marker.bindTooltip(city.name, {
+        permanent: false,
+        direction: "top",
+        offset: L.point(0, -10),
+        className: "!bg-purple-900 !text-white !border-0 !rounded-lg !px-3 !py-1 !text-sm !font-medium !shadow-lg",
       });
+    });
 
-      mapInstanceRef.current = map;
-    };
-
-    initMap();
+    mapInstanceRef.current = map;
 
     return () => {
       if (mapInstanceRef.current) {
