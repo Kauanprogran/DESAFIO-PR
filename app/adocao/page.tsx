@@ -9,20 +9,32 @@ export const metadata: Metadata = {
   description: "Adote um animal e transforme uma vida. Centenas de pets esperando por um lar.",
 };
 
-const animais = [
-  { nome: "Bolinha", especie: "Cachorro", raca: "SRD", idade: "2 anos", porte: "Médio", sexo: "Macho", cor: "Caramelo" },
-  { nome: "Mimi", especie: "Gato", raca: "SRD", idade: "1 ano", porte: "Pequeno", sexo: "Fêmea", cor: "Cinza" },
-  { nome: "Thor", especie: "Cachorro", raca: "Vira-lata", idade: "3 anos", porte: "Grande", sexo: "Macho", cor: "Preto" },
-  { nome: "Luna", especie: "Gato", raca: "SRD", idade: "6 meses", porte: "Pequeno", sexo: "Fêmea", cor: "Branca" },
-  { nome: "Rex", especie: "Cachorro", raca: "SRD", idade: "4 anos", porte: "Médio", sexo: "Macho", cor: "Malhado" },
-  { nome: "Bela", especie: "Gato", raca: "Persa", idade: "2 anos", porte: "Pequeno", sexo: "Fêmea", cor: "Laranja" },
+const dogFotos = [
+  "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1568572933382-74d440642117?w=400&h=300&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=400&h=300&fit=crop&q=80",
 ];
 
-function FotoPet({ nome, especie }: { nome: string; especie: string }) {
+const catFotos = [
+  "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=300&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1570458436416-b8fcccfe883f?w=400&h=300&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=400&h=300&fit=crop&q=80",
+];
+
+const animais = [
+  { nome: "Bolinha", especie: "Cachorro", raca: "SRD", idade: "2 anos", porte: "Médio", sexo: "Macho", cor: "Caramelo", foto: dogFotos[0] },
+  { nome: "Mimi", especie: "Gato", raca: "SRD", idade: "1 ano", porte: "Pequeno", sexo: "Fêmea", cor: "Cinza", foto: catFotos[0] },
+  { nome: "Thor", especie: "Cachorro", raca: "Vira-lata", idade: "3 anos", porte: "Grande", sexo: "Macho", cor: "Preto", foto: dogFotos[1] },
+  { nome: "Luna", especie: "Gato", raca: "SRD", idade: "6 meses", porte: "Pequeno", sexo: "Fêmea", cor: "Branca", foto: catFotos[1] },
+  { nome: "Rex", especie: "Cachorro", raca: "SRD", idade: "4 anos", porte: "Médio", sexo: "Macho", cor: "Malhado", foto: dogFotos[2] },
+  { nome: "Bela", especie: "Gato", raca: "Persa", idade: "2 anos", porte: "Pequeno", sexo: "Fêmea", cor: "Laranja", foto: catFotos[2] },
+];
+
+function FotoPet({ nome, foto, especie }: { nome: string; foto: string; especie: string }) {
   return (
     <div className="relative w-full h-52 rounded-xl overflow-hidden bg-gradient-to-br from-purple-700 to-purple-900">
       <Image
-        src={`https://picsum.photos/seed/${encodeURIComponent(nome)}/400/300`}
+        src={foto}
         alt={nome}
         fill
         className="object-cover hover:scale-105 transition-transform duration-500"
@@ -67,7 +79,7 @@ export default function AdocaoPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {animais.map((a) => (
             <div key={a.nome} className="rounded-2xl overflow-hidden border border-purple-500/10 glass-card">
-              <FotoPet nome={a.nome} especie={a.especie} />
+              <FotoPet nome={a.nome} foto={a.foto} especie={a.especie} />
               <div className="p-5">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-xl font-bold text-white">{a.nome}</h3>
