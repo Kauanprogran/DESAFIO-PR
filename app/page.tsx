@@ -18,6 +18,15 @@ import {
   Pill,
 } from "lucide-react";
 
+const RotaAnimada = dynamic(() => import("@/components/map/RotaAnimada"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[280px] md:h-[350px] rounded-2xl bg-purple-950/50 animate-pulse flex items-center justify-center">
+      <span className="text-purple-400 text-4xl">🚐</span>
+    </div>
+  ),
+});
+
 const ParanaMap = dynamic(() => import("@/components/map/ParanaMap"), {
   ssr: false,
   loading: () => (
@@ -364,6 +373,40 @@ export default function HomePage() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Acompanhe a Rota */}
+      <section className="py-24 relative overflow-hidden" style={{ background: "#0F0A2E" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <span className="pet-decoration top-10 left-[10%] animate-float-slow" style={{ opacity: 0.06 }}>🚐</span>
+          <span className="pet-decoration bottom-10 right-[10%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🐾</span>
+          <span className="pet-decoration top-1/3 right-[20%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.5s" }}>🐕</span>
+          <span className="pet-decoration bottom-1/4 left-[15%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1s" }}>🐱</span>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp()} className="text-center mb-12">
+            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
+              🚐 Rota ao vivo
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Acompanhe a{" "}
+              <span className="text-gradient bg-gradient-to-r from-purple-400 to-purple-200">rota da van</span>
+            </h2>
+            <p className="text-lg text-purple-200/50 max-w-2xl mx-auto">
+              Veja em tempo real a van saindo da base em Capitão Leônidas Marques até o endereço do cliente.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <RotaAnimada />
+          </motion.div>
         </div>
       </section>
 
