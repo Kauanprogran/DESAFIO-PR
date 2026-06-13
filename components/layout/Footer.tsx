@@ -75,7 +75,9 @@ function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-2">
-                <Image src="/logo.svg" alt="Help Pet" width={160} height={42} className="h-11 w-auto" priority />
+                <span style={{ background: 'rgba(15, 10, 46, 0.9)', padding: '4px 12px 4px 6px', borderRadius: '10px', display: 'flex', alignItems: 'center', height: '48px' }}>
+            <Image src="/logo.png" alt="Help Pet" width={108} height={135} className="h-full w-auto object-contain" priority />
+          </span>
               </Link>
               <span className="text-purple-400/30 text-sm">|</span>
               <span className="text-purple-200/50 text-sm">CRMV registrado • Protegido LGPD</span>
