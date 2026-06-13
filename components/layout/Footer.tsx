@@ -75,8 +75,8 @@ function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-2">
-                <span className="flex items-center justify-center" style={{ background: 'rgba(15, 10, 46, 0.9)', borderRadius: '14px', width: 64, height: 80, overflow: 'hidden' }}>
-            <Image src="/logo.png" alt="Help Pet" width={108} height={135} priority style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.2)' }} />
+                <span className="flex items-center" style={{ background: 'rgba(15, 10, 46, 0.9)', padding: '6px 14px 6px 8px', borderRadius: '12px', height: '62px' }}>
+            <Image src="/logo.png" alt="Help Pet" width={108} height={135} priority className="h-full w-auto object-contain" />
           </span>
               </Link>
               <span className="text-purple-400/30 text-sm">|</span>
