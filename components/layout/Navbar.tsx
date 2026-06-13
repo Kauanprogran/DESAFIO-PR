@@ -37,7 +37,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex-shrink-0">
-            <span className="flex items-center" style={{ background: 'rgba(15, 10, 46, 0.9)', padding: '6px 14px 6px 8px', borderRadius: '12px', height: '62px' }}>
+            <span className="flex items-center" style={{ background: 'rgba(15, 10, 46, 0.9)', padding: '6px 16px 6px 8px', borderRadius: '12px', height: '68px' }}>
               <Image src="/logo.png" alt="Help Pet" width={108} height={135} priority className="h-full w-auto object-contain" />
             </span>
           </Link>
