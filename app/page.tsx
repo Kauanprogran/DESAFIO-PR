@@ -358,10 +358,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {[
-              { src: "/images/produtos/racao-caes.jpg", tag: "Ração Premium", nome: "Ração Cães Adultos 15kg", emoji: "🐕" },
-              { src: "/images/produtos/racao-gatos.jpg", tag: "Ração Premium", nome: "Ração Gatos Adultos 7.5kg", emoji: "🐱" },
-              { src: "/images/produtos/petiscos.jpg", tag: "Snacks", nome: "Petiscos Naturais", emoji: "🦴" },
-              { src: "/images/produtos/higiene.jpg", tag: "Higiene", nome: "Kit Higiene Animal", emoji: "🧴" },
+              { src: "/images/produtos/RAÇÃO CAES ADULTOS 15KG.png", tag: "Ração Premium", nome: "Ração Cães Adultos 15kg", emoji: "🐕" },
+              { src: "/images/produtos/ração premier gatos adulto, 7.5 kg.webp", tag: "Ração Premium", nome: "Ração Gatos Adultos 7.5kg", emoji: "🐱" },
+              { src: "/images/produtos/petisco natural lambari desidratado 80g.jpg", tag: "Snacks", nome: "Petiscos Naturais", emoji: "🦴" },
+              { src: "/images/produtos/kit higiene animal.jpg", tag: "Higiene", nome: "Kit Higiene Animal", emoji: "🧴" },
             ].map((prod, i) => (
               <motion.div key={prod.nome} {...fadeUp(i * 0.08)} className="group relative">
                 <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/30 to-purple-950/50 border border-purple-500/15 hover:border-purple-400/40 transition-all duration-500 h-full flex flex-col">
