@@ -95,6 +95,15 @@ const servicos = [
 export default function HomePage() {
   return (
     <>
+      {/* Emoji Ticker */}
+      <div className="overflow-hidden bg-white/5 py-2 border-b border-white/5">
+        <div className="flex gap-8 whitespace-nowrap animate-marquee" style={{ width: 'fit-content' }}>
+          {['🐾','🐕','🐱','🦴','🐰','🐶','🐾','🐕','🐱','🦴','🐰','🐶','🐾','🐕','🐱','🦴','🐰','🐶'].map((e, i) => (
+            <span key={i} className="text-lg md:text-xl opacity-30">{e}</span>
+          ))}
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[90vh] flex items-center" style={{ background: "linear-gradient(135deg, #8B5CF6 0%, #A78BFA 35%, #BEBBE8 65%, #DDD6FE 100%)" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -136,7 +145,7 @@ export default function HomePage() {
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-purple-900 leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-purple-900 leading-tight mb-6">
                 Cuidado veterinário{" "}
                  <span className="text-gradient bg-gradient-to-r from-purple-800 to-purple-600">
                   onde seu pet está
@@ -148,26 +157,30 @@ export default function HomePage() {
                 e adoção responsável. Tudo perto de você no estado do Paraná.
               </p>
 
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-purple-800/70 mb-8 justify-center lg:justify-start">
-                <span className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" /> CRMV registrado</span>
-                <span className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" /> Dados protegidos LGPD</span>
-                <span className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" /> Atendimento humanizado</span>
-              </div>
+              <ul role="list" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-purple-800/70 mb-8 justify-center lg:justify-start">
+                <li className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" aria-hidden="true" /> CRMV registrado</li>
+                <li className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" aria-hidden="true" /> Dados protegidos LGPD</li>
+                <li className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" aria-hidden="true" /> Atendimento humanizado</li>
+              </ul>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link href="/servicos">
-                  <Button size="lg" variant="primary">
-                    Ver serviços
+                <Link href="/pet-sos">
+                  <Button
+                    size="lg"
+                    variant="primary"
+                    className="bg-red-600 hover:bg-red-700 text-white border-none shadow-lg shadow-red-600/25"
+                  >
+                    🆘 Pet SOS 24h
                   </Button>
                 </Link>
-                <Link href="/pet-sos">
+                <Link href="/servicos">
                   <Button
                     size="lg"
                     variant="outline"
                     style={{ borderColor: "#7C3AED", color: "#7C3AED" }}
                     className="hover:bg-purple-50"
                   >
-                    🆘 Pet SOS 24h
+                    Ver serviços
                   </Button>
                 </Link>
               </div>
@@ -323,45 +336,40 @@ export default function HomePage() {
       </section>
 
       {/* Catálogo de Produtos */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "#1A1045" }}>
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-600/5 rounded-full blur-3xl" />
-          <span className="pet-decoration top-10 left-[8%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
-          <span className="pet-decoration bottom-10 right-[8%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐕</span>
-          <span className="pet-decoration top-1/4 right-[15%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.5s" }}>🐱</span>
-          <span className="pet-decoration bottom-1/3 left-[10%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1.8s" }}>🦴</span>
-          <span className="pet-decoration bottom-[20%] right-[25%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐶</span>
-        </div>
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "#1A1045" }}>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp()} className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium border border-purple-400/20 text-purple-200 bg-white/5 mb-5">
+          <motion.div {...fadeUp()} className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium border border-purple-400/20 text-purple-200 bg-white/5 mb-4">
               Produtos
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
               Para o dia a dia do{" "}
               <span className="text-gradient bg-gradient-to-r from-purple-400 via-purple-300 to-purple-200">seu pet</span>
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { name: "Ração Premium Cães", badge: "🥩 Ração", emoji: "🥩", gradient: "from-purple-600/30 to-purple-800/30" },
-              { name: "Ração Premium Gatos", badge: "🐟 Ração", emoji: "🐟", gradient: "from-purple-500/30 to-purple-700/30" },
-              { name: "Petiscos Naturais", badge: "🍪 Petisco", emoji: "🍪", gradient: "from-purple-600/30 to-purple-800/30" },
-              { name: "Brinquedo Interativo", badge: "🎾 Brinquedo", emoji: "🎾", gradient: "from-purple-500/30 to-purple-700/30" },
-              { name: "Cama Conforto", badge: "🛏️ Acessório", emoji: "🛏️", gradient: "from-purple-600/30 to-purple-800/30" },
-              { name: "Kit Higiene", badge: "🧴 Higiene", emoji: "🧴", gradient: "from-purple-500/30 to-purple-700/30" },
+              { emoji: "🥩", tag: "Ração", nome: "Ração Premium Cães" },
+              { emoji: "🐟", tag: "Ração", nome: "Ração Premium Gatos" },
+              { emoji: "🍪", tag: "Petisco", nome: "Petiscos Naturais" },
+              { emoji: "🎾", tag: "Brinquedo", nome: "Brinquedo Interativo" },
+              { emoji: "🛏️", tag: "Acessório", nome: "Cama Conforto" },
+              { emoji: "🧴", tag: "Higiene", nome: "Kit Higiene" },
             ].map((prod, i) => (
-              <motion.div key={prod.name} {...fadeUp(i * 0.08)}>
-                <div className="glass-card rounded-xl overflow-hidden group h-full">
-                  <div className={`aspect-[4/3] bg-gradient-to-br ${prod.gradient} flex items-center justify-center border-b border-purple-400/10`}>
-                    <span className="text-6xl group-hover:scale-110 transition-transform duration-500">{prod.emoji}</span>
+              <motion.div key={prod.nome} {...fadeUp(i * 0.08)}>
+                <div className="glass-card rounded-xl overflow-hidden group h-full flex flex-col">
+                  <div className="aspect-square bg-gradient-to-br from-purple-600/20 to-purple-800/20 flex items-center justify-center border-b border-purple-400/10">
+                    <span className="text-5xl group-hover:scale-125 transition-transform duration-500">{prod.emoji}</span>
                   </div>
-                  <div className="p-4">
-                    <span className="inline-block text-xs font-semibold text-purple-300 bg-purple-500/10 px-2.5 py-1 rounded-full mb-2">
-                      {prod.badge}
+                  <div className="p-3 flex flex-col items-center gap-1.5 text-center flex-1">
+                    <span className="text-[10px] uppercase tracking-widest font-semibold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full">
+                      {prod.tag}
                     </span>
-                    <h3 className="text-sm font-semibold text-white leading-snug">{prod.name}</h3>
+                    <p className="text-xs font-semibold text-white leading-snug">{prod.nome}</p>
+                    <button className="mt-auto text-[11px] text-purple-300 border border-purple-500/30 rounded-full px-3 py-1 hover:bg-purple-500/10 transition-colors">
+                      Ver produto
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -522,7 +530,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <PetSOSButton variant="danger" size="lg">
+              <PetSOSButton variant="danger" size="lg" aria-label="Acionar emergência Pet SOS agora">
                 🆘 Acionar Pet SOS agora
               </PetSOSButton>
             </motion.div>
@@ -611,11 +619,11 @@ export default function HomePage() {
               Cadastre-se hoje e ganhe <strong className="text-white">1ª consulta veterinária gratuita</strong>. 
               Cuidado completo sem custo inicial para seu pet.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-purple-300/50 mb-8">
-              <span className="inline-flex items-center gap-1.5">✓ CRMV registrado</span>
-              <span className="inline-flex items-center gap-1.5">✓ Dados protegidos LGPD</span>
-              <span className="inline-flex items-center gap-1.5">✓ Atendimento humanizado</span>
-            </div>
+            <ul role="list" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-purple-300/50 mb-8">
+              <li className="inline-flex items-center gap-1.5"><span aria-hidden="true">✓</span> CRMV registrado</li>
+              <li className="inline-flex items-center gap-1.5"><span aria-hidden="true">✓</span> Dados protegidos LGPD</li>
+              <li className="inline-flex items-center gap-1.5"><span aria-hidden="true">✓</span> Atendimento humanizado</li>
+            </ul>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/register">
                 <Button size="lg" variant="primary">
