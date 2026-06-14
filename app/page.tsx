@@ -356,14 +356,12 @@ export default function HomePage() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {[
               { src: "/images/produtos/racao-caes.jpg", tag: "Ração Premium", nome: "Ração Cães Adultos 15kg", emoji: "🐕" },
               { src: "/images/produtos/racao-gatos.jpg", tag: "Ração Premium", nome: "Ração Gatos Adultos 7.5kg", emoji: "🐱" },
-              { src: "/images/produtos/petiscos.jpg", tag: "Snacks", nome: "Petiscos Naturais 500g", emoji: "🦴" },
-              { src: "/images/produtos/brinquedo.jpg", tag: "Brinquedos", nome: "Brinquedo Interativo", emoji: "🎾" },
-              { src: "/images/produtos/cama.jpg", tag: "Conforto", nome: "Cama Ortopédica", emoji: "🛏️" },
-              { src: "/images/produtos/higiene.jpg", tag: "Higiene", nome: "Kit Higiene Completo", emoji: "🧴" },
+              { src: "/images/produtos/petiscos.jpg", tag: "Snacks", nome: "Petiscos Naturais", emoji: "🦴" },
+              { src: "/images/produtos/higiene.jpg", tag: "Higiene", nome: "Kit Higiene Animal", emoji: "🧴" },
             ].map((prod, i) => (
               <motion.div key={prod.nome} {...fadeUp(i * 0.08)} className="group relative">
                 <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/30 to-purple-950/50 border border-purple-500/15 hover:border-purple-400/40 transition-all duration-500 h-full flex flex-col">
@@ -374,7 +372,7 @@ export default function HomePage() {
                       alt={prod.nome}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      sizes="(max-width: 768px) 50vw, 25vw"
                     />
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1A1045] via-purple-900/20 to-transparent" />
