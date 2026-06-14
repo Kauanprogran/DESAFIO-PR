@@ -75,7 +75,9 @@ function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <Link href="/" aria-label="Ir para página inicial">
-                <Image src="/logo.png" alt="" aria-hidden="true" width={108} height={135} className="h-12 w-auto object-contain opacity-80" />
+                <span className="flex items-center" style={{ background: 'rgba(15, 10, 46, 0.9)', padding: '4px 14px 4px 8px', borderRadius: '14px', height: '52px' }}>
+                  <Image src="/logo.png" alt="" aria-hidden="true" width={108} height={135} className="h-full w-auto object-contain opacity-80" />
+                </span>
               </Link>
               <span className="text-purple-400/30 text-sm">|</span>
               <span className="text-purple-200/50 text-sm">CRMV registrado • Protegido LGPD</span>

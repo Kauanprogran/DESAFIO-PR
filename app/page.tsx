@@ -350,17 +350,23 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { emoji: "🥩", tag: "Ração", nome: "Ração Premium Cães" },
-              { emoji: "🐟", tag: "Ração", nome: "Ração Premium Gatos" },
-              { emoji: "🍪", tag: "Petisco", nome: "Petiscos Naturais" },
-              { emoji: "🎾", tag: "Brinquedo", nome: "Brinquedo Interativo" },
-              { emoji: "🛏️", tag: "Acessório", nome: "Cama Conforto" },
-              { emoji: "🧴", tag: "Higiene", nome: "Kit Higiene" },
+              { src: "/images/produtos/racao-caes.jpg", tag: "Ração", nome: "Ração Premium Cães" },
+              { src: "/images/produtos/racao-gatos.jpg", tag: "Ração", nome: "Ração Premium Gatos" },
+              { src: "/images/produtos/petiscos.jpg", tag: "Petisco", nome: "Petiscos Naturais" },
+              { src: "/images/produtos/brinquedo.jpg", tag: "Brinquedo", nome: "Brinquedo Interativo" },
+              { src: "/images/produtos/cama.jpg", tag: "Acessório", nome: "Cama Conforto" },
+              { src: "/images/produtos/higiene.jpg", tag: "Higiene", nome: "Kit Higiene" },
             ].map((prod, i) => (
               <motion.div key={prod.nome} {...fadeUp(i * 0.08)}>
                 <div className="glass-card rounded-xl overflow-hidden group h-full flex flex-col">
-                  <div className="aspect-square bg-gradient-to-br from-purple-600/20 to-purple-800/20 flex items-center justify-center border-b border-purple-400/10">
-                    <span className="text-5xl group-hover:scale-125 transition-transform duration-500">{prod.emoji}</span>
+                  <div className="aspect-square relative bg-bg-dark overflow-hidden border-b border-purple-400/10">
+                    <Image
+                      src={prod.src}
+                      alt={prod.nome}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                    />
                   </div>
                   <div className="p-3 flex flex-col items-center gap-1.5 text-center flex-1">
                     <span className="text-[10px] uppercase tracking-widest font-semibold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full">
@@ -433,20 +439,28 @@ export default function HomePage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="order-1 lg:order-2 flex items-center justify-center"
+              className="order-1 lg:order-2"
             >
-              <div className="relative w-[360px] h-[360px]">
-                <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl" />
-                <div className="absolute inset-6 border border-purple-400/10 rounded-full" />
-                <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-full">
-                  <Image
-                    src="/images/van-help-pet.jpeg"
-                    alt="Van Help Pet"
-                    width={360}
-                    height={360}
-                    className="object-cover w-full h-full rounded-full"
-                  />
-                </div>
+              <div className="flex gap-4 justify-center flex-wrap">
+                {[
+                  "WhatsApp Image 2026-06-14 at 19.29.19.jpeg",
+                  "WhatsApp Image 2026-06-14 at 19.29.22 (1).jpeg",
+                  "WhatsApp Image 2026-06-14 at 19.29.22.jpeg",
+                ].map((src, i) => (
+                  <div key={i} className="relative w-[170px] h-[170px] md:w-[190px] md:h-[190px]">
+                    <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-xl" />
+                    <div className="absolute inset-1.5 border border-purple-400/10 rounded-full" />
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                      <Image
+                        src={`/images/${src}`}
+                        alt={`Van Help Pet ${i + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="190px"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
