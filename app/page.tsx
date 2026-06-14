@@ -5,7 +5,6 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { PetSOSButton } from "@/components/shared/PetSOSButton";
 import {
   Stethoscope,
@@ -337,8 +336,17 @@ export default function HomePage() {
 
       {/* Catálogo de Produtos */}
       <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "#1A1045" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/2 -left-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 -right-40 w-80 h-80 bg-purple-400/5 rounded-full blur-3xl" />
+          <span className="pet-decoration top-20 left-[10%] animate-float-slow" style={{ opacity: 0.05 }}>🐾</span>
+          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.05, animationDelay: "1s" }}>🐶</span>
+          <span className="pet-decoration top-2/3 left-[20%] animate-float-fast" style={{ opacity: 0.05, animationDelay: "0.5s" }}>🐱</span>
+          <span className="pet-decoration top-1/3 right-[15%] animate-float-slow" style={{ opacity: 0.05, animationDelay: "1.5s" }}>🦴</span>
+        </div>
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp()} className="text-center mb-10">
+          <motion.div {...fadeUp()} className="text-center mb-12">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium border border-purple-400/20 text-purple-200 bg-white/5 mb-4">
               Produtos
             </span>
@@ -348,33 +356,47 @@ export default function HomePage() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
             {[
-              { src: "/images/produtos/racao-caes.jpg", tag: "Ração", nome: "Ração Premium Cães" },
-              { src: "/images/produtos/racao-gatos.jpg", tag: "Ração", nome: "Ração Premium Gatos" },
-              { src: "/images/produtos/petiscos.jpg", tag: "Petisco", nome: "Petiscos Naturais" },
-              { src: "/images/produtos/brinquedo.jpg", tag: "Brinquedo", nome: "Brinquedo Interativo" },
-              { src: "/images/produtos/cama.jpg", tag: "Acessório", nome: "Cama Conforto" },
-              { src: "/images/produtos/higiene.jpg", tag: "Higiene", nome: "Kit Higiene" },
+              { src: "/images/produtos/racao-caes.jpg", tag: "Ração Premium", nome: "Ração Cães Adultos 15kg", emoji: "🐕" },
+              { src: "/images/produtos/racao-gatos.jpg", tag: "Ração Premium", nome: "Ração Gatos Adultos 7.5kg", emoji: "🐱" },
+              { src: "/images/produtos/petiscos.jpg", tag: "Snacks", nome: "Petiscos Naturais 500g", emoji: "🦴" },
+              { src: "/images/produtos/brinquedo.jpg", tag: "Brinquedos", nome: "Brinquedo Interativo", emoji: "🎾" },
+              { src: "/images/produtos/cama.jpg", tag: "Conforto", nome: "Cama Ortopédica", emoji: "🛏️" },
+              { src: "/images/produtos/higiene.jpg", tag: "Higiene", nome: "Kit Higiene Completo", emoji: "🧴" },
             ].map((prod, i) => (
-              <motion.div key={prod.nome} {...fadeUp(i * 0.08)}>
-                <div className="glass-card rounded-xl overflow-hidden group h-full flex flex-col">
-                  <div className="aspect-square relative bg-bg-dark overflow-hidden border-b border-purple-400/10">
+              <motion.div key={prod.nome} {...fadeUp(i * 0.08)} className="group relative">
+                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-purple-900/30 to-purple-950/50 border border-purple-500/15 hover:border-purple-400/40 transition-all duration-500 h-full flex flex-col">
+                  {/* Image container */}
+                  <div className="aspect-[4/3] relative overflow-hidden bg-purple-950/60">
                     <Image
                       src={prod.src}
                       alt={prod.nome}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
                     />
-                  </div>
-                  <div className="p-3 flex flex-col items-center gap-1.5 text-center flex-1">
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full">
-                      {prod.tag}
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1045] via-purple-900/20 to-transparent" />
+                    {/* Tag badge */}
+                    <div className="absolute top-2 left-2">
+                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg shadow-purple-600/30">
+                        {prod.tag}
+                      </span>
+                    </div>
+                    {/* Emoji decoration */}
+                    <span className="absolute top-2 right-2 text-lg opacity-40 group-hover:opacity-70 transition-opacity" aria-hidden="true">
+                      {prod.emoji}
                     </span>
-                    <p className="text-xs font-semibold text-white leading-snug">{prod.nome}</p>
-                    <button className="mt-auto text-[11px] text-purple-300 border border-purple-500/30 rounded-full px-3 py-1 hover:bg-purple-500/10 transition-colors">
-                      Ver produto
+                  </div>
+                  {/* Content */}
+                  <div className="p-3 flex flex-col items-start gap-2 flex-1">
+                    <h3 className="text-sm font-bold text-white leading-tight line-clamp-2">
+                      {prod.nome}
+                    </h3>
+                    <button className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-300 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 rounded-full px-3.5 py-1.5 transition-all duration-300 group/btn mt-auto">
+                      <span>Comprar</span>
+                      <span className="text-purple-400 group-hover/btn:translate-x-0.5 transition-transform duration-200">→</span>
                     </button>
                   </div>
                 </div>

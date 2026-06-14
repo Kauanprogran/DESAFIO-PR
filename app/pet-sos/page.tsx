@@ -51,7 +51,7 @@ export default function PetSOSPage() {
           <ol className="text-left max-w-md mx-auto space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
               <span className="bg-danger text-white w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">1</span>
-              Clique no botão "Acionar Pet SOS"
+              Clique no botão &ldquo;Acionar Pet SOS&rdquo;
             </li>
             <li className="flex items-start gap-3">
               <span className="bg-danger text-white w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">2</span>
