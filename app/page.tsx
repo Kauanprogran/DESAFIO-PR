@@ -447,11 +447,6 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <Link href="/servicos">
-                <Button variant="primary" size="lg">
-                  Ver rota da van
-                </Button>
-              </Link>
             </motion.div>
 
             <motion.div
