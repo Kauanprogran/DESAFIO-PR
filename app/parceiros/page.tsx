@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TiltCard } from "@/components/shared/TiltCard";
+import { Spotlight } from "@/components/shared/Spotlight";
 
 const parceiros = [
   { nome: "PetCare Centro", categoria: "Clínica Veterinária", cidade: "Curitiba, PR", nota: 4.8 },
@@ -33,6 +34,7 @@ export default function ParceirosPage() {
   return (
     <div className="min-h-screen" style={{ background: "#0F0A2E" }}>
       <section className="relative overflow-hidden py-20 text-center px-4 hero-gradient" style={{ background: "linear-gradient(-45deg, #042F2E, #0D9488, #14B8A6, #042F2E)" }}>
+        <Spotlight />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-teal-400/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl" />

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { TiltCard } from "@/components/shared/TiltCard";
+import { Spotlight } from "@/components/shared/Spotlight";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -18,6 +19,7 @@ export default function BancoRacaoPage() {
   return (
     <div className="min-h-screen" style={{ background: "#0F0A2E" }}>
       <section className="relative overflow-hidden py-20 text-center px-4 hero-gradient" style={{ background: "linear-gradient(-45deg, #1A1045, #78350F, #D97706, #1A1045)" }}>
+        <Spotlight />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-3xl" />

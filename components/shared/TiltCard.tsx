@@ -23,8 +23,8 @@ export function TiltCard({ children, className = "" }: TiltCardProps) {
     const centerY = rect.top + rect.height / 2;
     const deltaX = (e.clientX - centerX) / rect.width;
     const deltaY = (e.clientY - centerY) / rect.height;
-    x.set(deltaX * 8);
-    y.set(-deltaY * 8);
+    x.set(deltaX * 15);
+    y.set(-deltaY * 15);
   }
 
   function handleLeave() {

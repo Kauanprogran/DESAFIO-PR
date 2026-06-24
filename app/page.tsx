@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { PetSOSButton } from "@/components/shared/PetSOSButton";
+import { Spotlight } from "@/components/shared/Spotlight";
 import {
   Stethoscope,
   Syringe,
@@ -105,6 +106,7 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[90vh] flex items-center" style={{ background: "linear-gradient(135deg, #8B5CF6 0%, #A78BFA 35%, #BEBBE8 65%, #DDD6FE 100%)" }}>
+        <Spotlight />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-purple-300/20 rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-purple-200/15 rounded-full blur-3xl" />

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { TiltCard } from "@/components/shared/TiltCard";
+import { Spotlight } from "@/components/shared/Spotlight";
 
 const servicos = [
   { icon: "🏥", title: "Consultas", desc: "Atendimento clínico geral domiciliar.", preco: "A partir de R$ 49", badge: "Popular" },
@@ -20,6 +21,7 @@ export default function ServicosPage() {
   return (
     <div className="min-h-screen" style={{ background: "#0F0A2E" }}>
       <section className="relative overflow-hidden py-20 text-center px-4 hero-gradient" style={{ background: "linear-gradient(-45deg, #1A1045, #2D1B69, #4C1D95, #1A1045)" }}>
+        <Spotlight />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-violet-600/15 rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-purple-500/15 rounded-full blur-3xl" />

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { TiltCard } from "@/components/shared/TiltCard";
+import { Spotlight } from "@/components/shared/Spotlight";
 
 const dogFotos = [
   "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop&q=80",
@@ -58,6 +59,7 @@ export default function AdocaoPage() {
   return (
     <div className="min-h-screen" style={{ background: "#0F0A2E" }}>
       <section className="relative overflow-hidden py-20 text-center px-4 hero-gradient" style={{ background: "linear-gradient(-45deg, #1A1045, #78350F, #D97706, #1A1045)" }}>
+        <Spotlight />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-orange-400/10 rounded-full blur-3xl" />

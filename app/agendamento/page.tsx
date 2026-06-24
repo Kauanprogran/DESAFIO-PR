@@ -2,11 +2,13 @@
 
 import { motion } from "framer-motion";
 import { TiltCard } from "@/components/shared/TiltCard";
+import { Spotlight } from "@/components/shared/Spotlight";
 
 export default function AgendamentoPage() {
   return (
     <div className="min-h-screen" style={{ background: "#0F0A2E" }}>
       <section className="relative overflow-hidden py-20 text-center px-4 hero-gradient" style={{ background: "linear-gradient(-45deg, #1A1045, #2D1B69, #6D28D9, #1A1045)" }}>
+        <Spotlight />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-3xl" />
