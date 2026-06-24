@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { PetSOSButton } from "@/components/shared/PetSOSButton";
 import { Spotlight } from "@/components/shared/Spotlight";
+import { FloatingEmoji } from "@/components/shared/FloatingEmoji";
 import {
   Stethoscope,
   Syringe,
@@ -103,9 +104,11 @@ export default function HomePage() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/4 left-[8%] w-20 h-20 border border-purple-400/15 rounded-full animate-float-slow" />
-          <div className="absolute bottom-1/3 right-[15%] w-32 h-32 border border-purple-500/10 rounded-full animate-float-med" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-[60%] left-[5%] w-16 h-16 bg-purple-500/5 rounded-lg rotate-45 animate-float-fast" style={{ animationDelay: "0.5s" }} />
+          <FloatingEmoji className="pet-decoration top-20 left-[8%]" factor={22} delay={0}>🐾</FloatingEmoji>
+          <FloatingEmoji className="pet-decoration bottom-32 right-[12%]" factor={18} delay={0.3}>🐕</FloatingEmoji>
+          <FloatingEmoji className="pet-decoration top-1/3 left-[15%]" factor={28} delay={0.6}>🐱</FloatingEmoji>
+          <FloatingEmoji className="pet-decoration bottom-1/4 right-[8%]" factor={20} delay={0.9}>🦴</FloatingEmoji>
+          <FloatingEmoji className="pet-decoration top-2/3 left-[5%]" factor={25} delay={1.2}>🐰</FloatingEmoji>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
