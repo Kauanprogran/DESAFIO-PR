@@ -95,37 +95,17 @@ const servicos = [
 export default function HomePage() {
   return (
     <>
-      {/* Emoji Ticker */}
-      <div className="overflow-hidden bg-white/5 py-2 border-b border-white/5">
-        <div className="flex gap-8 whitespace-nowrap animate-marquee" style={{ width: 'fit-content' }}>
-          {['🐾','🐕','🐱','🦴','🐰','🐶','🐾','🐕','🐱','🦴','🐰','🐶','🐾','🐕','🐱','🦴','🐰','🐶'].map((e, i) => (
-            <span key={i} className="text-lg md:text-xl opacity-30">{e}</span>
-          ))}
-        </div>
-      </div>
+
 
       {/* Hero */}
-      <section className="relative overflow-hidden min-h-[90vh] flex items-center" style={{ background: "linear-gradient(135deg, #8B5CF6 0%, #A78BFA 35%, #BEBBE8 65%, #DDD6FE 100%)" }}>
+      <section className="relative overflow-hidden min-h-[90vh] flex items-center hero-gradient" style={{ background: "linear-gradient(135deg, #0F0A2E 0%, #1A1045 30%, #2D1B69 60%, #1A1045 100%)" }}>
         <Spotlight />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-purple-300/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-purple-200/15 rounded-full blur-3xl" />
-          <span className="pet-decoration top-20 left-[8%] animate-float-slow" style={{ opacity: 0.15, color: "#7C3AED" }}>🐾</span>
-          <span className="pet-decoration top-32 right-[12%] animate-float-med" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "1s" }}>🐕</span>
-          <span className="pet-decoration bottom-48 left-[15%] animate-float-fast" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "2s" }}>🐱</span>
-          <span className="pet-decoration bottom-32 right-[8%] animate-float-slow" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.5s" }}>🦴</span>
-          <span className="pet-decoration top-1/2 left-[5%] animate-float-med" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "1.5s" }}>🐰</span>
-          <span className="pet-decoration top-2/3 right-[5%] animate-float-fast" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.8s" }}>🐶</span>
-          <span className="pet-decoration top-[15%] left-[30%] animate-float-slow" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "2.5s" }}>🐾</span>
-          <span className="pet-decoration top-[40%] right-[25%] animate-float-med" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "1.2s" }}>🐕</span>
-          <span className="pet-decoration bottom-[20%] left-[35%] animate-float-fast" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "0.3s" }}>🐱</span>
-          <span className="pet-decoration bottom-[5%] left-[55%] animate-float-slow" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "3s" }}>🦴</span>
-          <span className="pet-decoration top-[60%] left-[8%] animate-float-med" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "1.8s" }}>🐰</span>
-          <span className="pet-decoration top-[5%] right-[35%] animate-float-fast" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.5s" }}>🐶</span>
-          <span className="pet-decoration bottom-[60%] right-[8%] animate-float-slow" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "2s" }}>🐾</span>
-          <span className="pet-decoration top-[25%] left-[60%] animate-float-med" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "0.7s" }}>🐱</span>
-          <span className="pet-decoration bottom-[35%] left-[5%] animate-float-fast" style={{ opacity: 0.15, color: "#7C3AED", animationDelay: "1.5s" }}>🐕</span>
-          <span className="pet-decoration top-[50%] right-[40%] animate-float-slow" style={{ opacity: 0.15, color: "#8B5CF6", animationDelay: "2.2s" }}>🦴</span>
+          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-[8%] w-20 h-20 border border-purple-400/15 rounded-full animate-float-slow" />
+          <div className="absolute bottom-1/3 right-[15%] w-32 h-32 border border-purple-500/10 rounded-full animate-float-med" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-[60%] left-[5%] w-16 h-16 bg-purple-500/5 rounded-lg rotate-45 animate-float-fast" style={{ animationDelay: "0.5s" }} />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -141,24 +121,24 @@ export default function HomePage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-700/30 text-purple-800 bg-white/60 mb-6">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-500/30 text-purple-300 bg-white/5 mb-6">
                   🐾 Saúde animal em todo o Paraná
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-purple-900 leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight mb-6 text-glow">
                 Cuidado veterinário{" "}
-                 <span className="text-gradient bg-gradient-to-r from-purple-800 to-purple-600">
+                 <span className="text-gradient bg-gradient-to-r from-purple-400 via-purple-300 to-purple-200">
                   onde seu pet está
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-purple-700/80 max-w-xl mb-6 mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-lg sm:text-xl text-purple-200/60 max-w-xl mb-6 mx-auto lg:mx-0 leading-relaxed">
                 Agende consultas, veterinários parceiros, emergência 24h, banco de ração
                 e adoção responsável. Tudo perto de você no estado do Paraná.
               </p>
 
-              <ul role="list" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-purple-800/70 mb-8 justify-center lg:justify-start">
+              <ul role="list" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-purple-300/60 mb-8 justify-center lg:justify-start">
                 <li className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" aria-hidden="true" /> CRMV registrado</li>
                 <li className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" aria-hidden="true" /> Dados protegidos LGPD</li>
                 <li className="inline-flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-600" aria-hidden="true" /> Atendimento humanizado</li>
@@ -178,8 +158,8 @@ export default function HomePage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    style={{ borderColor: "#7C3AED", color: "#7C3AED" }}
-                    className="hover:bg-purple-50"
+                    style={{ borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}
+                    className="hover:bg-white/10"
                   >
                     Ver serviços
                   </Button>
@@ -195,10 +175,13 @@ export default function HomePage() {
               className="hidden lg:flex items-center justify-center"
             >
               <div className="relative w-[420px] h-[420px]">
-                <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl" />
-                <div className="absolute inset-8 border border-purple-400/10 rounded-full" />
+                <div className="absolute inset-0 bg-purple-600/15 rounded-full blur-3xl" />
+                <div className="absolute inset-4 border border-purple-400/15 rounded-full" />
+                <div className="absolute inset-12 border border-purple-400/10 rounded-full" />
+                <div className="absolute inset-[84px] border border-purple-300/5 rounded-full" />
+                <div className="absolute inset-[120px] bg-gradient-to-br from-purple-500/10 to-purple-700/10 rounded-full" />
                 <div className="relative w-full h-full flex items-center justify-center">
-                  <span className="text-[220px] leading-none opacity-90">🐾</span>
+                  <span className="text-5xl opacity-40">🐾</span>
                 </div>
               </div>
             </motion.div>
@@ -232,27 +215,23 @@ export default function HomePage() {
           </motion.div>
 
           <div className="relative">
-            <div className="hidden md:block absolute top-20 left-[calc(16.66%+1.5rem)] right-[calc(16.66%+1.5rem)] h-0.5 bg-gradient-to-r from-purple-600/40 via-purple-400/40 to-purple-600/40" />
-
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               {[
                 { step: "01", icon: "📱", title: "Cadastre-se", desc: "Crie sua conta gratuita em menos de 2 minutos. Cadastre seu pet e acesse todos os serviços." },
                 { step: "02", icon: "🔍", title: "Escolha o serviço", desc: "Navegue pelos serviços, agende consultas ou solicite Pet SOS em emergências." },
                 { step: "03", icon: "🏠", title: "Atendimento em casa", desc: "O veterinário vai até você com tudo que seu pet precisa. Cuidado completo e humanizado." },
               ].map((item, i) => (
-                <motion.div key={item.step} {...fadeUp(i * 0.15)} className="relative">
-                  <div className="glass-card rounded-2xl p-8 text-center h-full flex flex-col items-center relative z-10 hover:-translate-y-1 transition-transform duration-300">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-700/20 border border-purple-400/20 flex items-center justify-center mb-6">
-                      <span className="text-3xl">{item.icon}</span>
+                <motion.div key={item.step} {...fadeUp(i * 0.15)} className="relative group">
+                  <div className="card-highlight rounded-2xl p-8 md:p-10 text-center h-full flex flex-col items-center relative z-10">
+                    <div className="absolute -top-px left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent" />
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500/25 to-purple-700/25 border border-purple-400/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-4xl">{item.icon}</span>
                     </div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-mono font-semibold text-purple-400/60 tracking-widest">
-                        PASSO {item.step}
-                      </span>
-                      <span className="w-1 h-1 rounded-full bg-purple-500/40" />
-                    </div>
+                    <span className="text-sm font-mono font-semibold text-purple-400/60 tracking-[0.2em] mb-3">
+                      PASSO {item.step}
+                    </span>
                     <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                    <p className="text-sm text-purple-300/50 leading-relaxed max-w-xs">{item.desc}</p>
+                    <p className="text-sm text-purple-200/50 leading-relaxed max-w-xs">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -279,14 +258,9 @@ export default function HomePage() {
       {/* Serviços */}
       <section id="servicos" className="py-24 relative overflow-hidden" style={{ background: "#1A1045" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <span className="pet-decoration top-5 left-[10%] animate-float-slow" style={{ opacity: 0.06 }}>🐱</span>
-          <span className="pet-decoration top-20 right-[8%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐾</span>
-          <span className="pet-decoration bottom-10 left-[20%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.5s" }}>🐕</span>
-          <span className="pet-decoration bottom-32 right-[15%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🦴</span>
-          <span className="pet-decoration top-[40%] left-[5%] animate-float-med" style={{ opacity: 0.06, animationDelay: "2s" }}>🐰</span>
-          <span className="pet-decoration top-[60%] right-[5%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐶</span>
-          <span className="pet-decoration top-[15%] left-[45%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1.2s" }}>🐾</span>
-          <span className="pet-decoration bottom-[20%] right-[40%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.8s" }}>🐱</span>
+          <span className="pet-decoration top-10 left-[10%] animate-float-slow" style={{ opacity: 0.04 }}>🐾</span>
+          <span className="pet-decoration bottom-10 right-[15%] animate-float-med" style={{ opacity: 0.04, animationDelay: "1.5s" }}>🐕</span>
+          <span className="pet-decoration top-1/3 right-[25%] animate-float-fast" style={{ opacity: 0.04, animationDelay: "0.8s" }}>🐱</span>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp()} className="text-center mb-16">
@@ -341,10 +315,8 @@ export default function HomePage() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/2 -left-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
           <div className="absolute bottom-1/3 -right-40 w-80 h-80 bg-purple-400/5 rounded-full blur-3xl" />
-          <span className="pet-decoration top-20 left-[10%] animate-float-slow" style={{ opacity: 0.05 }}>🐾</span>
-          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.05, animationDelay: "1s" }}>🐶</span>
-          <span className="pet-decoration top-2/3 left-[20%] animate-float-fast" style={{ opacity: 0.05, animationDelay: "0.5s" }}>🐱</span>
-          <span className="pet-decoration top-1/3 right-[15%] animate-float-slow" style={{ opacity: 0.05, animationDelay: "1.5s" }}>🦴</span>
+          <span className="pet-decoration top-20 left-[10%] animate-float-slow" style={{ opacity: 0.04 }}>🐾</span>
+          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.04, animationDelay: "1.5s" }}>🐶</span>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -411,14 +383,10 @@ export default function HomePage() {
       {/* Nossa Van */}
       <section className="py-24 relative overflow-hidden" style={{ background: "#0F0A2E" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <span className="pet-decoration top-10 left-[5%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
-          <span className="pet-decoration bottom-10 right-[5%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐕</span>
-          <span className="pet-decoration top-1/2 left-[20%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐱</span>
-          <span className="pet-decoration bottom-1/3 right-[20%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "2s" }}>🦴</span>
-          <span className="pet-decoration top-[30%] right-[35%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.8s" }}>🐰</span>
-          <span className="pet-decoration bottom-[5%] left-[40%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🐶</span>
+          <span className="pet-decoration top-10 left-[5%] animate-float-slow" style={{ opacity: 0.04 }}>🐾</span>
+          <span className="pet-decoration bottom-10 right-[5%] animate-float-med" style={{ opacity: 0.04, animationDelay: "1.5s" }}>🐕</span>
+          <span className="pet-decoration top-1/3 right-[25%] animate-float-fast" style={{ opacity: 0.04, animationDelay: "0.8s" }}>🐱</span>
         </div>
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp()} className="order-2 lg:order-1">
@@ -487,12 +455,9 @@ export default function HomePage() {
       {/* Acompanhe a Rota */}
       <section className="py-24 relative overflow-hidden" style={{ background: "#0F0A2E" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <span className="pet-decoration top-10 left-[10%] animate-float-slow" style={{ opacity: 0.06 }}>🚐</span>
-          <span className="pet-decoration bottom-10 right-[10%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🐾</span>
-          <span className="pet-decoration top-1/3 right-[20%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.5s" }}>🐕</span>
-          <span className="pet-decoration bottom-1/4 left-[15%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "1s" }}>🐱</span>
+          <span className="pet-decoration top-10 left-[10%] animate-float-slow" style={{ opacity: 0.04 }}>🚐</span>
+          <span className="pet-decoration bottom-10 right-[10%] animate-float-med" style={{ opacity: 0.04, animationDelay: "1.5s" }}>🐾</span>
         </div>
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp()} className="text-center mb-12">
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
@@ -525,14 +490,10 @@ export default function HomePage() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-600/5 rounded-full blur-3xl" />
-          <span className="pet-decoration top-10 left-[10%] animate-float-slow">🐾</span>
-          <span className="pet-decoration bottom-10 right-[10%] animate-float-med" style={{ animationDelay: "1.5s" }}>🐶</span>
-          <span className="pet-decoration top-20 right-[30%] animate-float-fast" style={{ animationDelay: "0.5s" }}>🐾</span>
-          <span className="pet-decoration bottom-20 left-[30%] animate-float-slow" style={{ animationDelay: "2s" }}>🐕</span>
-          <span className="pet-decoration top-[40%] left-[15%] animate-float-med" style={{ animationDelay: "1s" }}>🐱</span>
-          <span className="pet-decoration bottom-[30%] right-[20%] animate-float-fast" style={{ animationDelay: "0.3s" }}>🦴</span>
+          <span className="pet-decoration top-10 left-[10%] animate-float-slow" style={{ opacity: 0.04 }}>🐾</span>
+          <span className="pet-decoration bottom-10 right-[10%] animate-float-med" style={{ opacity: 0.04, animationDelay: "1.5s" }}>🐶</span>
+          <span className="pet-decoration top-1/3 right-[25%] animate-float-fast" style={{ opacity: 0.04, animationDelay: "0.8s" }}>🐾</span>
         </div>
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp()}>
@@ -587,13 +548,8 @@ export default function HomePage() {
 
       {/* Mapa Paraná */}
       <section className="py-24 relative overflow-hidden" style={{ background: "#1A1045" }}>
-        <span className="pet-decoration top-10 right-[15%] animate-float-slow">🐾</span>
-        <span className="pet-decoration bottom-10 left-[8%] animate-float-med" style={{ animationDelay: "1s" }}>🐰</span>
-        <span className="pet-decoration top-1/3 left-[15%] animate-float-fast" style={{ animationDelay: "0.5s" }}>🐕</span>
-        <span className="pet-decoration bottom-1/4 right-[25%] animate-float-slow" style={{ animationDelay: "2s" }}>🐱</span>
-        <span className="pet-decoration top-[50%] right-[10%] animate-float-med" style={{ animationDelay: "1.2s" }}>🦴</span>
-        <span className="pet-decoration bottom-[40%] left-[30%] animate-float-fast" style={{ animationDelay: "0.3s" }}>🐶</span>
-
+        <span className="pet-decoration top-10 right-[15%] animate-float-slow" style={{ opacity: 0.04 }}>🐾</span>
+        <span className="pet-decoration bottom-10 left-[8%] animate-float-med" style={{ opacity: 0.04, animationDelay: "1.5s" }}>🐰</span>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp()} className="text-center mb-16">
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
@@ -630,14 +586,9 @@ export default function HomePage() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-80 h-80 border border-purple-500/10 rounded-full" />
           <div className="absolute -bottom-40 -left-40 w-96 h-96 border border-purple-500/10 rounded-full" />
-          <span className="pet-decoration top-20 left-[10%] animate-float-slow" style={{ opacity: 0.06 }}>🐾</span>
-          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.06, animationDelay: "1s" }}>🐱</span>
-          <span className="pet-decoration top-1/2 left-[10%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "0.3s" }}>🐕</span>
-          <span className="pet-decoration bottom-1/3 right-[30%] animate-float-slow" style={{ opacity: 0.06, animationDelay: "2s" }}>🦴</span>
-          <span className="pet-decoration top-[30%] right-[15%] animate-float-med" style={{ opacity: 0.06, animationDelay: "0.8s" }}>🐰</span>
-          <span className="pet-decoration bottom-[10%] left-[30%] animate-float-fast" style={{ opacity: 0.06, animationDelay: "1.5s" }}>🐶</span>
+          <span className="pet-decoration top-20 left-[10%] animate-float-slow" style={{ opacity: 0.04 }}>🐾</span>
+          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.04, animationDelay: "1.5s" }}>🐱</span>
         </div>
-
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div {...fadeUp()}>
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-6">

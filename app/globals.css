@@ -76,6 +76,10 @@ input, select, textarea {
   -webkit-text-fill-color: transparent;
 }
 
+.text-glow {
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1);
+}
+
 /* ─── Glass ─── */
 .glass-dark {
   background: rgba(15, 10, 46, 0.85);
