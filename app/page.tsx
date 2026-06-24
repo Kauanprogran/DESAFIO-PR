@@ -178,13 +178,9 @@ export default function HomePage() {
               className="hidden lg:flex items-center justify-center"
             >
               <div className="relative w-[420px] h-[420px]">
-                <div className="absolute inset-0 bg-purple-600/15 rounded-full blur-3xl" />
-                <div className="absolute inset-4 border border-purple-400/15 rounded-full" />
-                <div className="absolute inset-12 border border-purple-400/10 rounded-full" />
-                <div className="absolute inset-[84px] border border-purple-300/5 rounded-full" />
-                <div className="absolute inset-[120px] bg-gradient-to-br from-purple-500/10 to-purple-700/10 rounded-full" />
+                <div className="absolute inset-8 bg-purple-600/15 rounded-full blur-3xl" />
                 <div className="relative w-full h-full flex items-center justify-center">
-                  <span className="text-5xl opacity-40">🐾</span>
+                  <span className="text-5xl opacity-30">🐾</span>
                 </div>
               </div>
             </motion.div>
