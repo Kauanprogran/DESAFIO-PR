@@ -1,10 +1,7 @@
-﻿import type { Metadata } from "next";
-import Link from "next/link";
+﻿"use client";
 
-export const metadata: Metadata = {
-  title: "Painel Admin — Help Pet",
-  description: "Painel administrativo do Help Pet.",
-};
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const cards = [
   { href: "/admin/agendamentos", icon: "📅", title: "Agendamentos", count: "24" },
@@ -24,34 +21,61 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen p-6" style={{ background: "#0F0A2E" }}>
       <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8"
+        >
           <h1 className="text-3xl font-bold text-white">Painel Administrativo</h1>
           <p className="text-purple-300/50">Gerencie sua plataforma Help Pet</p>
-        </div>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {cards.map((c) => (
-            <Link key={c.href} href={c.href}>
-              <div className="card-dark rounded-2xl p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <span className="text-4xl">{c.icon}</span>
-                  <span className="badge-purple px-2 py-0.5 text-sm rounded-full">{c.count}</span>
-                </div>
-                <h3 className="text-lg font-bold text-white">{c.title}</h3>
-              </div>
-            </Link>
+            <motion.div
+              key={c.href}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+              }}
+            >
+              <Link href={c.href}>
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="card-dark rounded-2xl p-6"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <span className="text-4xl">{c.icon}</span>
+                    <span className="badge-purple px-2 py-0.5 text-sm rounded-full">{c.count}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white">{c.title}</h3>
+                </motion.div>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="mt-12 grid lg:grid-cols-2 gap-6">
-          <div className="card-dark rounded-2xl p-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="card-dark rounded-2xl p-6"
+          >
             <h3 className="font-bold text-white mb-4">Agendamentos Recentes</h3>
             {[
               { nome: "Maria Silva", servico: "Consulta", data: "Hoje 14h", status: "Confirmado" as const },
               { nome: "João Oliveira", servico: "Vacinação", data: "Hoje 15h", status: "Pendente" as const },
               { nome: "Ana Costa", servico: "Castração", data: "Amanhã 09h", status: "Confirmado" as const },
             ].map((a) => (
-              <div key={a.nome} className="flex items-center justify-between py-3 border-b border-purple-500/10 last:border-0">
+              <div key={a.nome} className="flex items-center justify-between py-3 border-b border-purple-500/10 last:border-0 group hover:bg-purple-500/5 -mx-2 px-2 rounded-lg transition-colors">
                 <div>
                   <p className="text-sm font-medium text-white">{a.nome}</p>
                   <p className="text-xs text-purple-300/40">{a.servico} — {a.data}</p>
@@ -59,9 +83,14 @@ export default function AdminPage() {
                 <span className={`${badges[a.status]} px-2 py-0.5 text-xs rounded-full`}>{a.status}</span>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="card-dark rounded-2xl p-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="card-dark rounded-2xl p-6"
+          >
             <h3 className="font-bold text-white mb-4">Resumo Financeiro</h3>
             <div className="space-y-4">
               {[
@@ -69,7 +98,7 @@ export default function AdminPage() {
                 { label: "Doações recebidas", value: "R$ 12.450", change: "+8%" },
                 { label: "Novos usuários", value: "234", change: "+23%" },
               ].map((r) => (
-                <div key={r.label} className="flex items-center justify-between py-3 border-b border-purple-500/10 last:border-0">
+                <div key={r.label} className="flex items-center justify-between py-3 border-b border-purple-500/10 last:border-0 group hover:bg-purple-500/5 -mx-2 px-2 rounded-lg transition-colors">
                   <span className="text-sm text-purple-300/50">{r.label}</span>
                   <div className="text-right">
                     <span className="text-sm font-bold text-white">{r.value}</span>
@@ -78,7 +107,7 @@ export default function AdminPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

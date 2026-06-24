@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function AdminAgendamentosPage() {
   const agendamentos = [
     { id: 1, tutor: "Maria Silva", servico: "Consulta", data: "11/06 14:00", status: "Confirmado" },
@@ -17,8 +21,20 @@ export default function AdminAgendamentosPage() {
   return (
     <div className="p-6 min-h-screen" style={{ background: "#0F0A2E" }}>
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-2xl font-bold text-white mb-6">Gerenciar Agendamentos</h1>
-        <div className="card-dark rounded-2xl p-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-bold text-white mb-6"
+        >
+          Gerenciar Agendamentos
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="card-dark rounded-2xl p-6"
+        >
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -31,7 +47,13 @@ export default function AdminAgendamentosPage() {
               </thead>
               <tbody>
                 {agendamentos.map((a) => (
-                  <tr key={a.id} className="border-b border-purple-500/5">
+                  <motion.tr
+                    key={a.id}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.15 + a.id * 0.06 }}
+                    className="border-b border-purple-500/5 hover:bg-purple-500/5 transition-colors"
+                  >
                     <td className="py-3 text-white">{a.tutor}</td>
                     <td className="py-3 text-purple-300/50">{a.servico}</td>
                     <td className="py-3 text-purple-300/50">{a.data}</td>
@@ -40,12 +62,12 @@ export default function AdminAgendamentosPage() {
                         {a.status}
                       </span>
                     </td>
-                  </tr>
+                  </motion.tr>
                 ))}
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
