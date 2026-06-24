@@ -11,30 +11,13 @@ export default function AdminAgendamentosPage() {
     { id: 5, tutor: "Patrícia Lima", servico: "Consulta", data: "12/06 14:00", status: "Cancelado" },
   ];
 
-  const badgeMap: Record<string, string> = {
-    Confirmado: "badge-success",
-    Pendente: "badge-warning",
-    Concluído: "badge-purple",
-    Cancelado: "badge-danger",
-  };
+  const badgeMap: Record<string, string> = { Confirmado: "badge-success", Pendente: "badge-warning", Concluído: "badge-purple", Cancelado: "badge-danger" };
 
   return (
     <div className="p-6 min-h-screen" style={{ background: "#0F0A2E" }}>
       <div className="max-w-5xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-bold text-white mb-6"
-        >
-          Gerenciar Agendamentos
-        </motion.h1>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="card-dark rounded-2xl p-6"
-        >
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-2xl font-bold text-white mb-6">Gerenciar Agendamentos</motion.h1>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="card-dark rounded-2xl p-6">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -47,21 +30,11 @@ export default function AdminAgendamentosPage() {
               </thead>
               <tbody>
                 {agendamentos.map((a) => (
-                  <motion.tr
-                    key={a.id}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.15 + a.id * 0.06 }}
-                    className="border-b border-purple-500/5 hover:bg-purple-500/5 transition-colors"
-                  >
+                  <motion.tr key={a.id} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + a.id * 0.06 }} className="border-b border-purple-500/5 hover:bg-purple-500/5 transition-colors">
                     <td className="py-3 text-white">{a.tutor}</td>
                     <td className="py-3 text-purple-300/50">{a.servico}</td>
                     <td className="py-3 text-purple-300/50">{a.data}</td>
-                    <td className="py-3">
-                      <span className={`${badgeMap[a.status]} px-2 py-0.5 text-xs rounded-full`}>
-                        {a.status}
-                      </span>
-                    </td>
+                    <td className="py-3"><span className={`${badgeMap[a.status]} px-2 py-0.5 text-xs rounded-full`}>{a.status}</span></td>
                   </motion.tr>
                 ))}
               </tbody>

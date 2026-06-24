@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PetSOSButton } from "@/components/shared/PetSOSButton";
+import { TiltCard } from "@/components/shared/TiltCard";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -13,92 +14,51 @@ const fadeUp = (delay = 0) => ({
 export default function PetSOSPage() {
   return (
     <div className="min-h-screen" style={{ background: "#0F0A2E" }}>
-      <section className="relative overflow-hidden py-20 text-center px-4" style={{ background: "linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%)" }}>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-3xl" />
-          <span className="pet-decoration top-20 left-[8%] animate-float-slow" style={{ opacity: 0.08, color: "#EF4444" }}>🚨</span>
-          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.08, animationDelay: "1s", color: "#EF4444" }}>🐾</span>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-red-400/30 text-red-300 bg-red-500/10 mb-4 animate-pulse"
-          >
-            🚨 EMERGÊNCIA 24 HORAS
-          </motion.span>
+      <section className="relative overflow-hidden py-20 text-center px-4 hero-gradient" style={{ background: "linear-gradient(-45deg, #450A0A, #7F1D1D, #DC2626, #450A0A)" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-red-500/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl" />
+          <span className="pet-decoration top-20 left-[8%] animate-float-slow" style={{ opacity: 0.12 }}>🚨</span>
+          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.12, animationDelay: "1s" }}>🐾</span>
+        </div>
+        <div className="relative z-10">
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-red-400/40 text-red-200 bg-red-500/10 backdrop-blur-sm mb-4 animate-pulse">🚨 EMERGÊNCIA 24 HORAS</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-            Pet <span className="text-gradient bg-gradient-to-r from-red-400 to-orange-300">SOS</span>
+            Pet <span className="text-gradient bg-gradient-to-r from-red-300 to-orange-200">SOS</span>
           </h1>
-          <p className="text-white/60 text-lg max-w-xl mx-auto mb-8">
-            Seu pet passou mal? Acione o veterinário mais próximo com um clique.
-          </p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <PetSOSButton
-              variant="danger"
-              size="lg"
-              className="text-lg px-12 py-4 animate-pulse shadow-lg shadow-red-600/30"
-            >
+          <p className="text-white/60 text-lg max-w-xl mx-auto mb-8">Acione o veterinário mais próximo com um clique.</p>
+          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.3 }}>
+            <PetSOSButton variant="danger" size="lg" className="text-lg px-12 py-4 animate-pulse shadow-lg shadow-red-600/30">
               🆘 ACIONAR PET SOS AGORA
             </PetSOSButton>
           </motion.div>
-        </motion.div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0F0A2E] to-transparent z-10" />
       </section>
 
       <section className="max-w-4xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-8 text-center">
-          {[
-            { icon: "📍", title: "Geolocalização", desc: "Identificamos sua localização para enviar o vet mais próximo." },
-            { icon: "⏱️", title: "Resposta rápida", desc: "Veterinário a caminho em até 30 minutos na sua região." },
-            { icon: "💬", title: "WhatsApp integrado", desc: "Acompanhe o status pelo WhatsApp com atualizações em tempo real." },
+          {[{ icon: "📍", title: "Geolocalização", desc: "Identificamos sua localização." },
+            { icon: "⏱️", title: "Resposta rápida", desc: "Veterinário a caminho em até 30 min." },
+            { icon: "💬", title: "WhatsApp integrado", desc: "Acompanhe pelo WhatsApp." },
           ].map((item, i) => (
-            <motion.div key={item.title} {...fadeUp(0.1 * i)} className="card-dark rounded-2xl p-6 group">
-              <motion.span
-                whileHover={{ scale: 1.2 }}
-                className="text-5xl mb-4 block"
-              >
-                {item.icon}
-              </motion.span>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">{item.title}</h3>
-              <p className="text-sm text-purple-300/50">{item.desc}</p>
+            <motion.div key={item.title} {...fadeUp(0.1 * i)}>
+              <TiltCard>
+                <div className="card-dark card-glow rounded-2xl p-6 group">
+                  <span className="text-5xl mb-4 block group-hover:scale-110 transition-transform">{item.icon}</span>
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-red-300 transition-colors">{item.title}</h3>
+                  <p className="text-sm text-purple-300/50">{item.desc}</p>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 card-dark rounded-2xl p-8 text-center"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="mt-12 card-dark rounded-2xl p-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-6">Instruções</h2>
           <ol className="text-left max-w-md mx-auto space-y-4">
-            {[
-              "Clique no botão \"Acionar Pet SOS\"",
-              "Permita o acesso à sua localização",
-              "Descreva rapidamente o que está acontecendo",
-              "Um veterinário será notificado e irá até você",
-            ].map((text, i) => (
-              <motion.li
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 + i * 0.1 }}
-                className="flex items-start gap-3"
-              >
+            {["Clique no botão \"Acionar Pet SOS\"", "Permita o acesso à sua localização", "Descreva rapidamente o que está acontecendo", "Um veterinário será notificado"].map((text, i) => (
+              <motion.li key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 + i * 0.1 }} className="flex items-start gap-3">
                 <span className="bg-red-600 text-white w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold shadow-lg shadow-red-600/20">{i + 1}</span>
                 <span className="text-purple-200/60 pt-1">{text}</span>
               </motion.li>
