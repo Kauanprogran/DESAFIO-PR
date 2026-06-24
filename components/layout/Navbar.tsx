@@ -28,9 +28,9 @@ function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "glass-dark shadow-lg shadow-purple-950/20"
+          ? "glass-dark shadow-lg shadow-purple-950/30 border-b border-purple-500/5"
           : "bg-transparent"
       }`}
     >

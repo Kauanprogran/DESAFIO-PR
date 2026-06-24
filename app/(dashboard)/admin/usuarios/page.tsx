@@ -1,6 +1,3 @@
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-
 export default function AdminUsuariosPage() {
   const usuarios = [
     { nome: "Maria Silva", email: "maria@email.com", role: "Tutor", status: "Ativo" },
@@ -10,36 +7,38 @@ export default function AdminUsuariosPage() {
   ];
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Usuários</h1>
-      <Card className="p-6">
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200 text-left">
-                <th className="pb-3 font-semibold text-gray-600">Nome</th>
-                <th className="pb-3 font-semibold text-gray-600">E-mail</th>
-                <th className="pb-3 font-semibold text-gray-600">Tipo</th>
-                <th className="pb-3 font-semibold text-gray-600">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {usuarios.map((u, i) => (
-                <tr key={i} className="border-b border-gray-50">
-                  <td className="py-3 text-gray-900">{u.nome}</td>
-                  <td className="py-3 text-gray-600">{u.email}</td>
-                  <td className="py-3"><Badge variant="purple" size="sm">{u.role}</Badge></td>
-                  <td className="py-3">
-                    <Badge variant={u.status === "Ativo" ? "success" : "warning"}>
-                      {u.status}
-                    </Badge>
-                  </td>
+    <div className="p-6 min-h-screen" style={{ background: "#0F0A2E" }}>
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-2xl font-bold text-white mb-6">Usuários</h1>
+        <div className="card-dark rounded-2xl p-6">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-purple-500/10 text-left">
+                  <th className="pb-3 font-semibold text-purple-300/50">Nome</th>
+                  <th className="pb-3 font-semibold text-purple-300/50">E-mail</th>
+                  <th className="pb-3 font-semibold text-purple-300/50">Tipo</th>
+                  <th className="pb-3 font-semibold text-purple-300/50">Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {usuarios.map((u, i) => (
+                  <tr key={i} className="border-b border-purple-500/5">
+                    <td className="py-3 text-white">{u.nome}</td>
+                    <td className="py-3 text-purple-300/50">{u.email}</td>
+                    <td className="py-3"><span className="badge-purple px-2 py-0.5 text-xs rounded-full">{u.role}</span></td>
+                    <td className="py-3">
+                      <span className={`${u.status === "Ativo" ? "badge-success" : "badge-warning"} px-2 py-0.5 text-xs rounded-full`}>
+                        {u.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 }

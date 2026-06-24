@@ -16,12 +16,12 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  success: "bg-success-light text-success",
-  warning: "bg-warning-light text-warning",
-  danger: "bg-danger-light text-danger",
-  info: "bg-info-light text-info",
-  neutral: "bg-gray-100 text-gray-700",
-  purple: "bg-purple-100 text-purple-800",
+  success: "badge-success",
+  warning: "badge-warning",
+  danger: "badge-danger",
+  info: "bg-sky-500/15 text-sky-400 border border-sky-500/20",
+  neutral: "badge-dark",
+  purple: "badge-purple",
 };
 
 const sizeStyles = {

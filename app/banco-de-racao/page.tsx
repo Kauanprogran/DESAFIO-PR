@@ -1,7 +1,4 @@
 ﻿import type { Metadata } from "next";
-import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Banco de Ração — Help Pet",
@@ -10,49 +7,79 @@ export const metadata: Metadata = {
 
 export default function BancoRacaoPage() {
   return (
-    <div className="min-h-[calc(100vh-4rem)]">
-      <section className="bg-gradient-soft text-white py-16 text-center px-4">
-        <Badge variant="purple" size="sm" className="mb-4 bg-white/20 text-white border-white/30">
-          Solidariedade
-        </Badge>
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Banco de Ração</h1>
-        <p className="text-purple-100/80 text-lg max-w-xl mx-auto">
-          Junte-se a nós para garantir que nenhum pet passe fome.
-        </p>
+    <div className="min-h-screen" style={{ background: "#0F0A2E" }}>
+      <section className="relative overflow-hidden py-20 text-center px-4" style={{ background: "linear-gradient(135deg, #2D1B69 0%, #1A1045 50%, #0F0A2E 100%)" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-3xl" />
+          <span className="pet-decoration top-20 left-[8%] animate-float-slow" style={{ opacity: 0.08 }}>🦴</span>
+          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.08, animationDelay: "1s" }}>🐾</span>
+        </div>
+        <div className="relative">
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
+            Solidariedade
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+            Banco de{" "}
+            <span className="text-gradient bg-gradient-to-r from-amber-400 to-yellow-300">Ração</span>
+          </h1>
+          <p className="text-purple-200/60 text-lg max-w-xl mx-auto">
+            Junte-se a nós para garantir que nenhum pet passe fome.
+          </p>
+        </div>
       </section>
 
       <section className="max-w-5xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="p-8">
-            <span className="text-5xl mb-4 block">📦</span>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Solicitar Ração</h2>
-            <p className="text-gray-500 mb-6">
+          <div className="card-dark rounded-2xl p-8 text-center">
+            <span className="text-6xl block mb-4">📦</span>
+            <h2 className="text-2xl font-bold text-white mb-4">Solicitar Ração</h2>
+            <p className="text-purple-300/50 mb-6">
               Tutores de baixa renda podem solicitar ração gratuitamente para seus pets.
             </p>
-            <ul className="space-y-2 mb-8 text-sm text-gray-600">
-              <li className="flex items-center gap-2">✓ Cadastro gratuito</li>
-              <li className="flex items-center gap-2">✓ Retirada em pontos parceiros</li>
-              <li className="flex items-center gap-2">✓ 5kg de ração por mês por pet</li>
+            <ul className="space-y-3 mb-8 text-sm text-left max-w-xs mx-auto">
+              {["Cadastro gratuito", "Retirada em pontos parceiros", "5kg de ração por mês por pet"].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-purple-200/60">
+                  <span className="w-5 h-5 rounded-full bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-400 text-xs">✓</span>
+                  </span>
+                  {item}
+                </li>
+              ))}
             </ul>
-            <Button variant="primary" fullWidth size="lg">Solicitar ração</Button>
-          </Card>
+            <button className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-cta text-white font-semibold text-base hover:brightness-110 transition-all shadow-lg shadow-purple-600/25">
+              Solicitar ração
+            </button>
+          </div>
 
-          <Card variant="highlight" className="p-8">
-            <span className="text-5xl mb-4 block">🎁</span>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Doar Ração</h2>
-            <p className="text-gray-500 mb-6">
+          <div className="card-highlight rounded-2xl p-8 text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-500/10 to-transparent px-4 py-1 rounded-bl-2xl">
+              <span className="text-xs font-semibold text-amber-400">💜 Solidariedade</span>
+            </div>
+            <span className="text-6xl block mb-4">🎁</span>
+            <h2 className="text-2xl font-bold text-white mb-4">Doar Ração</h2>
+            <p className="text-purple-300/50 mb-6">
               Contribua com ração e alimentos para ajudar pets em situação de vulnerabilidade.
             </p>
-            <ul className="space-y-2 mb-8 text-sm text-gray-600">
-              <li className="flex items-center gap-2">✓ Doe ração nova ou lacrada</li>
-              <li className="flex items-center gap-2">✓ Pontos de coleta em toda cidade</li>
-              <li className="flex items-center gap-2">✓ Recibo para dedução no IR</li>
+            <ul className="space-y-3 mb-8 text-sm text-left max-w-xs mx-auto">
+              {["Doe ração nova ou lacrada", "Pontos de coleta em toda cidade", "Recibo para dedução no IR"].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-purple-200/60">
+                  <span className="w-5 h-5 rounded-full bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-400 text-xs">✓</span>
+                  </span>
+                  {item}
+                </li>
+              ))}
             </ul>
-            <div className="flex gap-3">
-              <Button variant="primary" fullWidth size="lg">Doar ração</Button>
-              <Button variant="outline" fullWidth size="lg">Ver pontos</Button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-cta text-white font-semibold text-base hover:brightness-110 transition-all shadow-lg shadow-purple-600/25">
+                Doar ração
+              </button>
+              <button className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-transparent text-purple-300 font-semibold text-base border border-purple-500/30 hover:bg-purple-500/10 transition-all">
+                Ver pontos
+              </button>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
     </div>

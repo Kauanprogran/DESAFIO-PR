@@ -1,47 +1,52 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
   title: "Cadastro — Help Pet",
-  description: "Crie sua conta gratuita no Help Pet.",
+  description: "Crie sua conta Help Pet gratuita.",
 };
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-12 bg-bg-soft">
-      <Card className="w-full max-w-md p-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12" style={{ background: "#0F0A2E" }}>
+      <div className="card-dark rounded-2xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-900">Criar conta</h1>
-          <p className="text-gray-500 text-sm mt-1">
+          <h1 className="text-3xl font-bold text-white">Criar Conta</h1>
+          <p className="text-purple-300/50 text-sm mt-1">
             Cadastre-se gratuitamente
           </p>
         </div>
 
         <form className="space-y-5">
-          <Input label="Nome completo" placeholder="Seu nome" required />
-          <Input label="E-mail" type="email" placeholder="seu@email.com" required />
-          <Input label="Telefone" type="tel" placeholder="(11) 99999-9999" />
-          <Input label="Senha" type="password" placeholder="Minimo 8 caracteres" required />
-          <Input label="Confirmar senha" type="password" placeholder="Repita a senha" required />
+          <div>
+            <label className="block text-sm font-medium text-purple-200 mb-1.5">Nome completo</label>
+            <input type="text" placeholder="Seu nome" required className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-purple-500/20 text-white placeholder:text-purple-400/30 text-base outline-none focus:border-purple-400/40 transition-colors" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-purple-200 mb-1.5">E-mail</label>
+            <input type="email" placeholder="seu@email.com" required className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-purple-500/20 text-white placeholder:text-purple-400/30 text-base outline-none focus:border-purple-400/40 transition-colors" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-purple-200 mb-1.5">Senha</label>
+            <input type="password" placeholder="Mínimo 8 caracteres" required className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-purple-500/20 text-white placeholder:text-purple-400/30 text-base outline-none focus:border-purple-400/40 transition-colors" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-purple-200 mb-1.5">Confirmar senha</label>
+            <input type="password" placeholder="Repita a senha" required className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-purple-500/20 text-white placeholder:text-purple-400/30 text-base outline-none focus:border-purple-400/40 transition-colors" />
+          </div>
 
-          <Button type="submit" fullWidth size="lg">
+          <button type="submit" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-cta text-white font-semibold text-base hover:brightness-110 transition-all shadow-lg shadow-purple-600/25">
             Criar conta
-          </Button>
+          </button>
         </form>
 
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm text-purple-300/50 mt-6">
           Já tem conta?{" "}
-          <Link
-            href="/login"
-            className="text-purple-600 hover:text-purple-800 font-medium"
-          >
+          <Link href="/login" className="text-purple-400 hover:text-purple-300 font-medium">
             Entrar
           </Link>
         </p>
-      </Card>
+      </div>
     </div>
   );
 }

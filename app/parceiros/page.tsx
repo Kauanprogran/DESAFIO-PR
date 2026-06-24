@@ -1,7 +1,4 @@
 ﻿import type { Metadata } from "next";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Parceiros — Help Pet",
@@ -19,38 +16,54 @@ const parceiros = [
 
 export default function ParceirosPage() {
   return (
-    <div className="min-h-[calc(100vh-4rem)]">
-      <section className="bg-gradient-soft text-white py-16 text-center px-4">
-        <Badge variant="purple" size="sm" className="mb-4 bg-white/20 text-white border-white/30">
-          Nossa rede
-        </Badge>
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Rede de Parceiros</h1>
-        <p className="text-purple-100/80 text-lg max-w-xl mx-auto">
-          Encontre veterinários, clínicas e pet shops parceiros perto de você.
-        </p>
+    <div className="min-h-screen" style={{ background: "#0F0A2E" }}>
+      <section className="relative overflow-hidden py-20 text-center px-4" style={{ background: "linear-gradient(135deg, #2D1B69 0%, #1A1045 50%, #0F0A2E 100%)" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl" />
+          <span className="pet-decoration top-20 left-[8%] animate-float-slow" style={{ opacity: 0.08 }}>🏪</span>
+          <span className="pet-decoration bottom-20 right-[10%] animate-float-med" style={{ opacity: 0.08, animationDelay: "1s" }}>🐾</span>
+        </div>
+        <div className="relative">
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border border-purple-400/30 text-purple-200 bg-white/5 mb-4">
+            Nossa rede
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+            Rede de{" "}
+            <span className="text-gradient bg-gradient-to-r from-purple-400 to-purple-200">Parceiros</span>
+          </h1>
+          <p className="text-purple-200/60 text-lg max-w-xl mx-auto">
+            Encontre veterinários, clínicas e pet shops parceiros perto de você.
+          </p>
+        </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
           {["Todos", "Clínicas", "Pet Shops", "Veterinário Móvel", "Banho & Tosa", "24h"].map((f) => (
-            <button key={f} className="px-4 py-2 rounded-full bg-purple-100 text-purple-800 text-sm font-medium whitespace-nowrap hover:bg-purple-200 transition-colors">{f}</button>
+            <button key={f} className="px-4 py-2 rounded-full bg-white/5 text-purple-200/70 text-sm font-medium whitespace-nowrap hover:bg-white/10 hover:text-white transition-colors border border-purple-500/10">
+              {f}
+            </button>
           ))}
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {parceiros.map((p) => (
-            <Card key={p.nome} className="p-6">
+            <div key={p.nome} className="card-dark rounded-2xl p-6">
               <div className="flex items-start justify-between mb-3">
-                <div className="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center text-xl">🏪</div>
-                <Badge variant={p.nota >= 4.8 ? "success" : "neutral"} size="sm">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/15 flex items-center justify-center text-xl">🏪</div>
+                <span className={`badge-${p.nota >= 4.8 ? 'success' : 'purple'} px-2 py-0.5 text-xs rounded-full`}>
                   ★ {p.nota}
-                </Badge>
+                </span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">{p.nome}</h3>
-              <p className="text-sm text-purple-600 mb-1">{p.categoria}</p>
-              <p className="text-sm text-gray-400 mb-4">{p.cidade}</p>
-              <Button variant="primary" fullWidth size="sm">Ver perfil</Button>
-            </Card>
+              <h3 className="text-lg font-bold text-white">{p.nome}</h3>
+              <p className="text-sm text-purple-400 mb-1">{p.categoria}</p>
+              <p className="text-sm text-purple-300/40 mb-4">{p.cidade}</p>
+              <button className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-purple-300 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 rounded-full px-3.5 py-2 transition-all">
+                <span>Ver perfil</span>
+                <span>→</span>
+              </button>
+            </div>
           ))}
         </div>
       </section>

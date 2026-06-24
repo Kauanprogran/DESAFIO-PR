@@ -33,16 +33,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-cta text-white border-transparent",
+    "bg-gradient-cta text-white border-transparent shadow-lg shadow-purple-600/25",
   secondary:
-    "bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200",
+    "bg-white/10 text-purple-200 border-white/20 hover:bg-white/20",
   outline:
-    "bg-transparent text-purple-700 border-purple-300 hover:bg-purple-50",
+    "bg-transparent text-purple-300 border-purple-500/30 hover:bg-purple-500/10",
   ghost:
-    "bg-transparent text-gray-700 border-transparent hover:bg-gray-100",
+    "bg-transparent text-purple-300 border-transparent hover:bg-white/10",
   danger:
-    "bg-danger text-white border-danger",
-  link: "bg-transparent text-purple-600 border-transparent hover:text-purple-800 p-0 min-h-0 h-auto",
+    "bg-red-600 text-white border-red-600 shadow-lg shadow-red-600/25 hover:bg-red-700",
+  link: "bg-transparent text-purple-400 border-transparent hover:text-purple-300 p-0 min-h-0 h-auto",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

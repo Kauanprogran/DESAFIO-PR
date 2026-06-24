@@ -16,9 +16,9 @@ interface CardProps {
 
 const variantStyles: Record<CardVariant, string> = {
   default:
-    "bg-white border border-gray-200",
+    "card-dark text-white",
   highlight:
-    "bg-gradient-card border border-purple-200",
+    "card-highlight text-white",
   dark: "bg-bg-dark border border-purple-800 text-white",
 };
 
